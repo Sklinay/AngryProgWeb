@@ -15,6 +15,10 @@ Vector.prototype.mult = function (k) {
     return new Vector(this.x * k, this.y * k );
 };
 
+Vector.prototype.multV = function (v) {
+    return new Vector(this.x * v.x, this.y * v.y );
+};
+
 Vector.prototype.dot = function (v) {
     return this.x * v.x + this.y * v.y;
 };

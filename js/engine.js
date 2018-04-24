@@ -42,6 +42,8 @@ Engine.prototype.update = function (dt) {
         if (Number.isFinite(body.mass))
 	    body.force = body.force.add(Constants.gravity.mult(body.mass));
 
+        //Gestion de la friction de l'air ultra basique
+        body.velocity = body.velocity.multV(Constants.airfriction);
 	/* end extra */
 
         // On calcule la nouvelle accéleration :
@@ -49,10 +51,13 @@ Engine.prototype.update = function (dt) {
         body.force = Vector.ZERO;
         var delta_v = a.mult(dt);
         body.velocity = body.velocity.add(delta_v);
-
+        
+        
+        
         // On met à jour la position.
-        body.move(body.velocity.mult(dt));
-
+        //body.move(body.velocity.mult(dt));
+        // On met à jour la position, mais on annule les vitesses inférieurs à minimalSpeed
+        body.move(new Vector(body.velocity.x < Constants.minimalSpeed ? 0 : body.velocity.x, body.velocity.y < Constants.minimalSpeed ? 0 : body.velocity.y).mult(dt));
     };
 
 };

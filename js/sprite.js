@@ -16,3 +16,4 @@ Sprite.prototype.draw = function () {
     ctx.fillRect(this.origin.x, this.origin.y, this.width, this.height);
   };
 };
+

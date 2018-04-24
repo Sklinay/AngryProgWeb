@@ -34,10 +34,9 @@ Body.prototype.setCollision = function (b) {
 
 
 Body.prototype.collision = function (b) {
-
     var mdiff = this.mDiff(b);
-    if (mdiff.hasOrigin()) {
-
+    if (mdiff.hasOrigin()) { //Vérifie s'il y a collision entre b et this
+        console.log(mdiff);
 	var vectors = [ new Vector (0,mdiff.origin.y),
 			new Vector (0,mdiff.origin.y+mdiff.height),
 			new Vector (mdiff.origin.x, 0),

@@ -2,10 +2,10 @@ var init = function () {
     window.canvas = document.getElementById("canvasJeu");
     window.ctx = canvas.getContext("2d");
 
-    var wall1 = new Sprite(new Vector(0,0), 1000, 20, Infinity);
-    var wall2 = new Sprite(new Vector(0,580), 1000, 20, Infinity);
-    var wall3 = new Sprite(new Vector(0,20), 20, 560, Infinity);
-    var wall4 = new Sprite(new Vector(980,20), 20, 560, Infinity);
+    window.wall1 = new Sprite(new Vector(0,0), 1000, 20, Infinity);
+    window.wall2 = new Sprite(new Vector(0,580), 1000, 20, Infinity);
+    window.wall3 = new Sprite(new Vector(0,20), 20, 560, Infinity);
+    window.wall4 = new Sprite(new Vector(980,20), 20, 560, Infinity);
 
     var engine = new Engine();
 

@@ -1,7 +1,7 @@
 var Constants = {
-    gravity: new Vector(0, 0.0005),
+    gravity: new Vector(0, 0.001),
     elasticity: 0.5,
-    airfriction: new Vector(0.99, 1),
+    airfriction: new Vector(0.97, 1),
     minimalSpeed: 0.05
 };
 
@@ -26,10 +26,10 @@ class Game {
         this.initListener() ;
     }
     initLevelTest() {
-        var wall1 = new Sprite(this.context,new Vector(0, 0), 1000, 20, Infinity, Vector.ZERO);
-        var wall2 = new Sprite(this.context,new Vector(0, 580), 1000, 20, Infinity, Vector.ZERO);
-        var wall3 = new Sprite(this.context,new Vector(0, 20), 20, 560, Infinity, Vector.ZERO);
-        var wall4 = new Sprite(this.context,new Vector(980, 20), 20, 560, Infinity, Vector.ZERO);
+        var wall1 = new Sprite(this.context,new Vector(0, 0), 1000, 20, 10, Vector.ZERO,true);
+        var wall2 = new Sprite(this.context,new Vector(0, 580), 1000, 20, 10, Vector.ZERO,true);
+        var wall3 = new Sprite(this.context,new Vector(0, 20), 20, 560, 10, Vector.ZERO,true);
+        var wall4 = new Sprite(this.context,new Vector(980, 20), 20, 560, 10, Vector.ZERO,true);
         this.engine.addBody(wall1);
         this.engine.addBody(wall2);
         this.engine.addBody(wall3);
@@ -56,8 +56,7 @@ class Game {
     }
     
     fire(target){
-        var sprite = new Sprite(this.context,new Vector(this.engine.aimLine.origin.x - this.engine.aimLine.target.x, this.engine.aimLine.origin.y - this.engine.aimLine.target.y), 30, 30, +document.getElementById("mass").value, this.engine.aimLine.target.mult(1/100),'ressources/box.png');   
-        console.log(this.engine.aimLine.target.mult(1/100));
+        var sprite = new Sprite(this.context,new Vector(this.engine.aimLine.origin.x - this.engine.aimLine.target.x, this.engine.aimLine.origin.y - this.engine.aimLine.target.y), 30, 30, +document.getElementById("mass").value,this.engine.aimLine.target.mult(1/100),false, 'ressources/box.png');   
         this.engine.addBody(sprite);
     }
 }

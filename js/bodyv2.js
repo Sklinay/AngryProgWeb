@@ -32,11 +32,11 @@ class Body extends Rect {
 			new Vector(mdiff.origin.x, 0),
 			new Vector(mdiff.origin.x + mdiff.width, 0)];
 
-            var n = vectors[0];
-
+            //On détermine le vecteur de pénétration
+            var vecPene = vectors[0];
             for (var i = 1; i < vectors.length; i++) {
-                if (vectors[i].norm() < n.norm())
-                    n = vectors[i];
+                if (vectors[i].norm() < vecPene.norm())
+                    vecPene = vectors[i];
             };
 
             var norm_v = this.velocity.norm();
@@ -55,26 +55,26 @@ class Body extends Rect {
                 }
 
             };
-
-             this.move(n.mult(kv));
-            b.move(n.mult(-kvb));
-
-            n = n.normalize();
+            var vecPeneR = vecPene;
+            vecPene = vecPene.normalize();
 
             // (2) On calcule l'impulsion j :
             var v = this.velocity.sub(b.velocity);
             var e = Constants.elasticity; // pour les étudiants, juste faire var e = 1;
 
-            var j = -(1 + e) * v.dot(n) / (this.invMass + b.invMass);
+            var j = -(1 + e) * v.dot(vecPene) / (this.invMass + b.invMass);
 
             // (3) On calcule les nouvelle vitesse:
-            var new_v = this.velocity.add(n.mult(j * this.invMass));
-            var new_bv = b.velocity.sub(n.mult(j * b.invMass));
+            var new_v = this.velocity.add(vecPene.mult(j * this.invMass));
+            var new_bv = b.velocity.sub(vecPene.mult(j * b.invMass));
 
             b.setCollision(true);
             this.setCollision(true);
 
             return {
+                vecPene:vecPeneR,
+                kv:kv,
+                kvb:kvb,
                 velocity1: new_v,
                 velocity2: new_bv
             };

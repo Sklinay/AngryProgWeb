@@ -1,5 +1,6 @@
 var Engine = function () {
     this.bodies = [];
+    this.aimLine = new Line(Vector.ZERO,Vector.ZERO);
 };
 
 
@@ -15,7 +16,7 @@ Engine.prototype.removeBody = function (b) {
 };
 
 Engine.prototype.update = function (dt) {
-
+    this.aimLine.draw();
     for (var i = 0; i < this.bodies.length; i ++) {
 
         var body = this.bodies[i];
@@ -55,9 +56,9 @@ Engine.prototype.update = function (dt) {
         
         
         // On met à jour la position.
-        //body.move(body.velocity.mult(dt));
+        body.move(body.velocity.mult(dt));
         // On met à jour la position, mais on annule les vitesses inférieurs à minimalSpeed
-        body.move(new Vector(body.velocity.x < Constants.minimalSpeed ? 0 : body.velocity.x, body.velocity.y < Constants.minimalSpeed ? 0 : body.velocity.y).mult(dt));
+        //body.move(new Vector(body.velocity.x < Constants.minimalSpeed ? 0 : body.velocity.x, body.velocity.y < Constants.minimalSpeed ? 0 : body.velocity.y).mult(dt));
     };
 
 };

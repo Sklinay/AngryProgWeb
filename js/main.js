@@ -1,11 +1,11 @@
 var init = function () {
     window.canvas = document.getElementById("canvasJeu");
     window.ctx = canvas.getContext("2d");
-
-    window.wall1 = new Sprite(new Vector(0,0), 1000, 20, Infinity);
-    window.wall2 = new Sprite(new Vector(0,580), 1000, 20, Infinity);
-    window.wall3 = new Sprite(new Vector(0,20), 20, 560, Infinity);
-    window.wall4 = new Sprite(new Vector(980,20), 20, 560, Infinity);
+   
+    var wall1 = new Sprite(new Vector(0,0), 1000, 20, Infinity,Vector.ZERO);
+    var wall2 = new Sprite(new Vector(0,580), 1000, 20, Infinity,Vector.ZERO);
+    var wall3 = new Sprite(new Vector(0,20), 20, 560, Infinity,Vector.ZERO);
+    var wall4 = new Sprite(new Vector(980,20), 20, 560, Infinity,Vector.ZERO);
 
     var engine = new Engine();
 
@@ -25,16 +25,23 @@ var init = function () {
     	}
     }, 1000/60);
 
-    canvas.addEventListener("click", function (ev) {
-    	if (this != ev.target) return;
-    	var x = ev.offsetX;
-    	var y = ev.offsetY;
-      console.log(x,y);
-    	var sprite = new Sprite(new Vector(x,y), 30, 30, +document.getElementById("mass").value);
-    	sprite.force = new Vector(0.01,0.01);
+    canvas.addEventListener("mousedown", function (ev) {
+        engine.aimLine.setOrigin(ev.clientX,ev.clientY);
+        engine.aimLine.setTarget(ev.clientX,ev.clientY);
+        engine.aimLine.startDrawn();
+    });
+    
+    canvas.addEventListener("mousemove", function (ev) {
+        if(!engine.aimLine.drawing) return;        
+        engine.aimLine.setTarget(ev.clientX,ev.clientY);              
+    });
+    
+    canvas.addEventListener("mouseup", function (ev) {
+        engine.aimLine.stopDrawn();
+        var sprite = new Sprite(new Vector(engine.aimLine.origin.x - engine.aimLine.target.x, engine.aimLine.origin.y - engine.aimLine.target.y), 30, 30, +document.getElementById("mass").value,engine.aimLine.target.normalize());
+    	//sprite.force = new Vector(0.01,0.01);
     	engine.addBody(sprite);
     });
-
     /* begin extra */
     var gravityInput = document.getElementById("gravity");
     var elasticityInput = document.getElementById("elasticity");

@@ -12,6 +12,6 @@ Renderer.prototype.update = function (dt) {
 };
 
 Renderer.prototype.clearCanvas = function (dt) {
-    //ctx => window.ctx
+    //ctx => window.ctx 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 };

@@ -1,8 +1,8 @@
-var Body = function (v, w, h, m) {
+var Body = function (v, w, h, m,vel) {
     Rect.call(this, v, w, h);
     this.mass = m || 0;
     this.invMass = 1/this.mass;
-    this.velocity = Vector.ZERO;
+    this.velocity = vel;
     this.force = Vector.ZERO;
 
     /* begin en bonus */

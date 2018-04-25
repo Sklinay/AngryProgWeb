@@ -12,7 +12,7 @@ class Game {
         this.engine = new Engine(this.canvas);
         this.renderer = new Renderer(this.canvas,this.engine)
         this.initLevelTest();
-        
+
         var _this = this;
         var interval;
         interval = setInterval(function () {
@@ -51,7 +51,7 @@ class Game {
 
         this.canvas.addEventListener("mouseup", function (ev) {
             _this.engine.aimLine.stopDrawn();
-            var sprite = new Sprite(_this.context,new Vector(_this.engine.aimLine.origin.x - _this.engine.aimLine.target.x, _this.engine.aimLine.origin.y - _this.engine.aimLine.target.y), 30, 30, +document.getElementById("mass").value, _this.engine.aimLine.target.normalize());
+            var sprite = new Sprite(_this.context,new Vector(_this.engine.aimLine.origin.x - _this.engine.aimLine.target.x, _this.engine.aimLine.origin.y - _this.engine.aimLine.target.y), 30, 30, +document.getElementById("mass").value, _this.engine.aimLine.target.normalize(),'ressources/box.png');
             //sprite.force = new Vector(0.01,0.01);
             _this.engine.addBody(sprite);
         });

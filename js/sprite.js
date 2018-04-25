@@ -14,7 +14,8 @@ class Sprite extends Body {
     draw () {
         var image = new Image();
         image.src = this.imagePath;
-        this.context.drawImage(image, 0, 0, 70, 70, this.origin.x, this.origin.y, this.width, this.height);
+        
+        this.context.drawImage(image, 0, 0, image.width, image.height, this.origin.x, this.origin.y, this.width, this.height);
         //this.context.fillRect(this.origin.x, this.origin.y, this.width, this.height);
     }
 

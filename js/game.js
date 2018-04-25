@@ -51,9 +51,13 @@ class Game {
 
         this.canvas.addEventListener("mouseup", function (ev) {
             _this.engine.aimLine.stopDrawn();
-            var sprite = new Sprite(_this.context,new Vector(_this.engine.aimLine.origin.x - _this.engine.aimLine.target.x, _this.engine.aimLine.origin.y - _this.engine.aimLine.target.y), 30, 30, +document.getElementById("mass").value, _this.engine.aimLine.target.normalize(),'ressources/box.png');
-            //sprite.force = new Vector(0.01,0.01);
-            _this.engine.addBody(sprite);
+            _this.fire();
         });
+    }
+    
+    fire(target){
+        var sprite = new Sprite(this.context,new Vector(this.engine.aimLine.origin.x - this.engine.aimLine.target.x, this.engine.aimLine.origin.y - this.engine.aimLine.target.y), 30, 30, +document.getElementById("mass").value, this.engine.aimLine.target.mult(1/100),'ressources/box.png');   
+        console.log(this.engine.aimLine.target.mult(1/100));
+        this.engine.addBody(sprite);
     }
 }

@@ -1,38 +1,63 @@
-var Vector = function (x, y) {
-    Object.defineProperty ( this, "x", { writable: false, value : x });
-    Object.defineProperty ( this, "y", { writable: false, value : y });
-};
+class Vector {
+    constructor(x, y) {
+        Object.defineProperty(this, "x", {
+            writable: false,
+            value: x
+        });
+        Object.defineProperty(this, "y", {
+            writable: false,
+            value: y
+        });
+    }
 
-Vector.prototype.add = function (v) {
-    return new Vector(this.x + v.x, this.y + v.y );
-};
+    add(v) {
+        return new Vector(this.x + v.x, this.y + v.y);
+    }
 
-Vector.prototype.sub = function (v) {
-    return new Vector(this.x - v.x, this.y - v.y );
-};
+    sub(v) {
+        return new Vector(this.x - v.x, this.y - v.y);
+    }
 
-Vector.prototype.mult = function (k) {
-    return new Vector(this.x * k, this.y * k );
-};
+    mult(k) {
+        return new Vector(this.x * k, this.y * k);
+    }
 
-Vector.prototype.multV = function (v) {
-    return new Vector(this.x * v.x, this.y * v.y );
-};
+    multV(v) {
+        return new Vector(this.x * v.x, this.y * v.y);
+    }
 
-Vector.prototype.dot = function (v) {
-    return this.x * v.x + this.y * v.y;
-};
+    dot(v) {
+        return this.x * v.x + this.y * v.y;
+    }
 
-Vector.prototype.norm = function () {
-    return Math.sqrt(this.dot(this));
-};
+    norm() {
+        return Math.sqrt(this.dot(this));
+    }
 
-Vector.prototype.normalize = function () {
-    return this.mult(1/this.norm ());
-};
+    normalize() {
+        return this.mult(1 / this.norm());
+    }
 
-Vector.ZERO = new Vector (0,0);
-Vector.UNIT_X = new Vector (1,0);
-Vector.UNIT_Y = new Vector (0,1);
-Vector.MINUS_UNIT_X = new Vector (-1, 0);
-Vector.MINUS_UNIT_Y = new Vector (0, -1);
+    static get ZERO() {
+        return ZERO;
+    }
+
+    static get UNIT_X() {
+        return UNIT_X;
+    }
+    static get UNIT_Y() {
+        return UNIT_Y;
+    }
+    static get MINUS_UNIT_X() {
+        return MINUS_UNIT_X;
+    }
+    static get MINUS_UNIT_Y() {
+        return MINUS_UNIT_Y;
+    }
+}
+
+const ZERO = new Vector(0, 0);
+const UNIT_X = new Vector(1, 0);
+const UNIT_Y = new Vector(0, 1);
+const MINUS_UNIT_X = new Vector(-1, 0);
+const MINUS_UNIT_Y = new Vector(0, -1);

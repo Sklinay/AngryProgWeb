@@ -41,14 +41,11 @@ class Engine {
                 };
             };
 
-
-            /* begin extra */
             if (Number.isFinite(body.mass))
                 body.force = body.force.add(Constants.gravity.mult(body.mass));
 
             //Gestion de la friction de l'air ultra basique
             body.velocity = body.velocity.multV(Constants.airfriction);
-            /* end extra */
 
             // On calcule la nouvelle accéleration :
             var a = body.force.mult(body.invMass);

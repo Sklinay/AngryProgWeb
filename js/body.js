@@ -6,19 +6,12 @@ class Body extends Rect {
         this.invMass = 1 / this.mass;
         this.velocity = vel;
         this.force = Vector.ZERO;
-
-        /* begin en bonus */
         this.hasCollision = false;
-        /* end en bonus */
     }
-    /* begin en bonus */
 
     setCollision(b) {
         this.hasCollision = b;
     }
-
-    /* end en bonus */
-
 
 
     /* Dectection de collision entre l'objet courrant et l'objet b.

@@ -20,7 +20,7 @@ class Body extends Rect {
        Renvoie null si pas de collision, sinon renvoie les nouveau vecteur vitesses
        pour l'objet courant et pour b
     */
-
+    
 
 
     collision(b) {
@@ -49,9 +49,9 @@ class Body extends Rect {
                     return null;
                 else {
                     if (this.mass <= b.mass)
-                        kv = 1;
+                        kv = 1; kvb = 0;
                     else
-                        kvb = 1
+                        kv = 0; kvb = 1;
                 }
 
             };

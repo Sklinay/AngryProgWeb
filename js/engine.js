@@ -45,7 +45,7 @@ class Engine {
                 body.force = body.force.add(Constants.gravity.mult(body.mass));
 
             //Gestion de la friction de l'air ultra basique
-            body.velocity = body.velocity.multV(Constants.airfriction);
+            body.velocity = body.velocity.add(-body.velocity.normalize().multV(Constants.airfriction);
 
             // On calcule la nouvelle accéleration :
             var a = body.force.mult(body.invMass);

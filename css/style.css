@@ -1,5 +1,14 @@
+body{margin: 0px;}
+.container{
+    width: 100%;
+    text-align: center;
+}
+.canvasContainer{
+   margin: 0 auto;
+    text-align: center;
+}
 canvas {
-    width: 1000px;
+    width: 1500px;
     height: 600px;
     background-color: #AAAAAA;
 }

@@ -21,7 +21,11 @@ class Vector {
     mult(k) {
         return new Vector(this.x * k, this.y * k);
     }
-
+    
+    div(k) {
+        return new Vector(this.x / k, this.y / k);
+    }
+    
     multV(v) {
         return new Vector(this.x * v.x, this.y * v.y);
     }

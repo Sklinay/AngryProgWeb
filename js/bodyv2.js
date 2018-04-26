@@ -4,6 +4,7 @@ class Body extends Rect {
         super(v, w, h);
         this.mass = m || 0;
         this.invMass = 1 / this.mass;
+        //this._velocity = vel;
         this.velocity = vel;
         this.force = Vector.ZERO;
         this.hasCollision = false;
@@ -20,13 +21,25 @@ class Body extends Rect {
        Renvoie null si pas de collision, sinon renvoie les nouveau vecteur vitesses
        pour l'objet courant et pour b
     */
-
+    /*speedPolisher(v) {
+        return new Vector(
+            Math.abs(v.x) > Constants.minimalSpeed ? v.x : 0,
+            Math.abs(v.y) > Constants.minimalSpeed ? v.y : 0,
+        )
+    }
+    
+    get velocity(){
+        return this.speedPolisher(this._velocity);
+    }
+    
+    set velocity(v){
+        this._velocity = v;
+    }*/
 
 
     collision(b) {
         var mdiff = this.mDiff(b);
         if (mdiff.hasOrigin()) { //Vérifie s'il y a collision entre b et this
-            console.log("colision");
             var vectors = [new Vector(0, mdiff.origin.y),
 			new Vector(0, mdiff.origin.y + mdiff.height),
 			new Vector(mdiff.origin.x, 0),

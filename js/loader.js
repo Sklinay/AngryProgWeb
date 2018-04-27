@@ -20,7 +20,8 @@ class Loader {
     readData(data) {
         var engine = this.game.engine;
         var decor = this.game.decor;
-        Constants.airfriction = new Vector(data.levelSettings.airFriction.x, data.levelSettings.airFriction.y);
+        Constants.airfriction = data.levelSettings.airFriction;
+        console.log(Constants.airfriction);
         Constants.gravity = new Vector(data.levelSettings.gravity.x, data.levelSettings.gravity.y);
         engine.aimLine.launcherPos = new Vector(data.levelSettings.launcherPosition.x, data.levelSettings.launcherPosition.y);
         decor.init(data.decorSettings.typeDecor);

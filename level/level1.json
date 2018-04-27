@@ -8,14 +8,11 @@
             "x": 0,
             "y": 0.001
         },
-        "airFriction": {
-            "x": 0.001,
-            "y": 0
-        },
+        "airFriction": 0.0003,
         "firePower": 10
     },
     "decorSettings":{
-        "typeDecor": "Grass"
+        "typeDecor": "Snow"
     },
     "bird": [
         {

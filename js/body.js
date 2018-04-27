@@ -10,6 +10,7 @@ class Body extends Rect {
         this.force = Vector.ZERO;
         this.hasCollision = false;
         this.isStatic = s.isStatic;
+        this.angle = 0;
     }
 
     setCollision(b) {
@@ -28,11 +29,11 @@ class Body extends Rect {
             Math.abs(v.y) > Constants.minimalSpeed ? v.y : 0,
         )
     }
-    
+
     get velocity(){
         return this.speedPolisher(this._velocity);
     }
-    
+
     set velocity(v){
         this._velocity = v;
     }*/

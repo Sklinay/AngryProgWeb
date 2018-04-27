@@ -10,9 +10,11 @@ var Constants = {
 class Game {
     constructor(canvas,canvasDecor) {
         var test = new Loader(this,"level1.json");
-       
-        this.canvas = canvas;
+
         this.canvasDecor = canvasDecor;
+        this.decor = new Decor();
+
+        this.canvas = canvas;
         this.context = this.canvas.getContext("2d");
         this.engine = new Engine(this.canvas);
         this.renderer = new Renderer(this.canvas, this.engine)

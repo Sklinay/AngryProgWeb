@@ -3,9 +3,8 @@ class Engine {
         this.canvas = canvas;
         this.context = this.canvas.getContext("2d");
         this.bodies = [];
-        this.aimLine = new Line(this.context,Vector.ZERO, Vector.ZERO);
+        this.aimLine = new Line(this.context, Vector.ZERO, Vector.ZERO);
     }
-
     addBody(b) {
         this.bodies.push(b);
     }
@@ -17,51 +16,53 @@ class Engine {
         if (i >= 0)
             this.bodies.splice(i, 1);
     }
-
-    update(dt) {
-        this.aimLine.draw();
-        for (var i = 0; i < this.bodies.length; i++) {
-
-            var body = this.bodies[i];
-
-
-
-            // On regarde si avec une telle vitesse il peut y avoir collision avec les autres objets.
-            for (var j = i + 1; j < this.bodies.length; j++) {
-
-                var otherBody = this.bodies[j];
-
-                var res = body.collision(otherBody);
-
-                if (res != null) {
-                    // mise à jour des vitesses
-                    body.velocity = res.velocity1;
-                    otherBody.velocity = res.velocity2;
-
-                };
-            };
-
-            if (Number.isFinite(body.mass))
-                body.force = body.force.add(Constants.gravity.mult(body.mass));
-
-            //Gestion de la friction de l'air ultra basique
-            body.velocity = body.velocity.add(-body.velocity.normalize().multV(Constants.airfriction);
-
-            // On calcule la nouvelle accéleration :
-            var a = body.force.mult(body.invMass);
-            body.force = Vector.ZERO;
-            var delta_v = a.mult(dt);
-            body.velocity = body.velocity.add(delta_v);
-
-
-
-            // On met à jour la position.
-            body.move(body.velocity.mult(dt));
-            // On met à jour la position, mais on annule les vitesses inférieurs à minimalSpeed
-            //body.move(new Vector(body.velocity.x < Constants.minimalSpeed ? 0 : body.velocity.x, body.velocity.y < Constants.minimalSpeed ? 0 : body.velocity.y).mult(dt));
-        };
-
+    speedPolisher(v) {
+        return new Vector(
+            Math.abs(v.x) > Constants.minimalSpeed ? v.x : 0,
+            Math.abs(v.y) > Constants.minimalSpeed ? v.y : 0,
+        )
     }
+    update(dt) {
+        //Dessin de la ligne de visée 
+        this.aimLine.draw();
+        //Pour chaque body
+        for (var i = 0; i < this.bodies.length; i++) {
+            var body = this.bodies[i];
+            var bounce = Vector.ZERO;
+            //Pour chaque body autre que ceux déjà parcouru dans la première boucle
+            for (var j = i + 1; j < this.bodies.length; j++) {
+                var oBody = this.bodies[j];
+                var result = body.collision(oBody);
+                if (result != null) {
+                    if (!body.isStatic) {
+                            body.velocity = result.velocity1;
+                            body.move(this.speedPolisher(result.vecPene.mult(result.kv)));
+                        
+                    }
+                    if (!oBody.isStatic) {
+                            oBody.velocity = result.velocity2;
+                            oBody.move(this.speedPolisher(result.vecPene.mult(-result.kvb)));
+                    }
+                }
+            }
 
+            if (!body.isStatic) {
+                //Impact de la gravité sur l'objet en fonction de sa masse; o
+                if (Number.isFinite(body.mass))
+                    body.force = body.force.add(Constants.gravity.mult(body.mass));
+                //Impact de la friction de l'air (div(body.mass), plus l'objet est massif, moins les frictionnement auront d'impact)
+                body.velocity = body.velocity.add(body.velocity.normalize().multV(Constants.airfriction).mult(-1).div(body.mass));
+                //Accélération de l'objet
+                var delta_v = Constants.gravity.mult(dt);
+                body.force = Vector.ZERO;
+                body.velocity = body.velocity.add(delta_v);
+                //Polissage de la vitesse pour arrêter les vibrations
+                //body.move(this.speedPolisher(body.velocity).mult(dt));                
+                //Problème à régler => à cause de la gravité, un objet est en perpetuelle collision avec le sol, donc l'objet garde une vitesse trop grande pour être annulé
+                
+                body.move(body.velocity.mult(dt));
+            }
 
+        }
+    }
 }

@@ -1,13 +1,13 @@
 class Sprite extends Body {
 
-    constructor(context, v, w, h, m, vel, isStatic = false, imagePath) {
-        super(v, w, h, m, vel, isStatic);
+    constructor(context, s) {
+        super(s);
         this.context = context;
-        if (imagePath == undefined) {
+        if (s.texture == undefined) {
             this.imagePath = "ressources/default.png";
         }
         else {
-            this.imagePath = imagePath;
+            this.imagePath = "ressources/"+s.texture;
         }
     }
 

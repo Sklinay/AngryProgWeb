@@ -1,0 +1,312 @@
+{
+    "levelSettings": {
+        "launcherPosition": {
+            "x": 250,
+            "y": 380
+        },
+        "gravity": {
+            "x": 0,
+            "y": 0.001
+        },
+        "airFriction": {
+            "x": 0.001,
+            "y": 0
+        },
+        "firePower": 10
+    },
+    "bird": [
+        {
+            "description": "Bird Description",
+            "factorDamage": 1,
+            "speed": 1
+        }
+    ],
+    "target": [{
+        "x": 960,
+        "y": 501,
+        "width": 80,
+        "height": 80,
+        "life": 100,
+        "elasticity": 0.5,
+        "velocity": {
+            "x": 0,
+            "y": 0
+        },
+        "mass": 10,
+        "isStatic": false,
+        "texture": "ennemy.png",
+        "description": "ennemy1"
+    }],
+    "obstacle": [
+        {
+            "x": 0,
+            "y": 0,
+            "width": 1500,
+            "height": 20,
+            "elasticity": 0.5,
+            "velocity": {
+                "x": 0,
+                "y": 0
+            },
+            "mass": null,
+            "isStatic": true,
+            "texture": "default.png",
+            "description": "Mur du haut"
+      },
+        {
+            "x": 0,
+            "y": 580,
+            "width": 1500,
+            "height": 20,
+            "elasticity": 0.5,
+            "velocity": {
+                "x": 0,
+                "y": 0
+            },
+            "mass": null,
+            "isStatic": true,
+            "texture": "default.png",
+            "description": "Mur du bas"
+
+      },
+        {
+            "x": 0,
+            "y": 20,
+            "width": 20,
+            "height": 560,
+            "elasticity": 0.5,
+            "velocity": {
+                "x": 0,
+                "y": 0
+            },
+            "mass": null,
+            "isStatic": true,
+            "texture": "default.png",
+            "description": "Mur de gauche"
+      },
+        {
+            "x": 1480,
+            "y": 20,
+            "width": 20,
+            "height": 560,
+            "elasticity": 0.5,
+            "velocity": {
+                "x": 0,
+                "y": 0
+            },
+            "mass": null,
+            "isStatic": true,
+            "texture": "default.png",
+            "description": "Mur de droite"
+      },
+        {
+            "x": 500,
+            "y": 280,
+            "width": 45,
+            "height": 300,
+            "elasticity": 0.5,
+            "velocity": {
+                "x": 0,
+                "y": 0
+            },
+            "mass": null,
+            "isStatic": true,
+            "texture": "default.png",
+            "description": "Mur obstacle"
+      },
+        {
+            "x": 920,
+            "y": 550,
+            "width": 30,
+            "height": 30,
+            "elasticity": 0.5,
+            "velocity": {
+                "x": 0,
+                "y": 0
+            },
+            "mass": 10,
+            "isStatic": false,
+            "texture": "box.png",
+            "description": "Box protège cible"
+      },        
+        {
+            "x": 920,
+            "y": 520,
+            "width": 30,
+            "height": 30,
+            "elasticity": 0.5,
+            "velocity": {
+                "x": 0,
+                "y": 0
+            },
+            "mass": 10,
+            "isStatic": false,
+            "texture": "box.png",
+            "description": "Box protège cible"
+      },        
+        {
+            "x": 920,
+            "y": 490,
+            "width": 30,
+            "height": 30,
+            "elasticity": 0.5,
+            "velocity": {
+                "x": 0,
+                "y": 0
+            },
+            "mass": 10,
+            "isStatic": false,
+            "texture": "box.png",
+            "description": "Box protège cible"
+      },        
+        {
+            "x": 920,
+            "y": 460,
+            "width": 30,
+            "height": 30,
+            "elasticity": 0.5,
+            "velocity": {
+                "x": 0,
+                "y": 0
+            },
+            "mass": 10,
+            "isStatic": false,
+            "texture": "box.png",
+            "description": "Box protège cible"
+      },        
+        {
+            "x": 920,
+            "y": 430,
+            "width": 30,
+            "height": 30,
+            "elasticity": 0.5,
+            "velocity": {
+                "x": 0,
+                "y": 0
+            },
+            "mass": 10,
+            "isStatic": false,
+            "texture": "box.png",
+            "description": "Box protège cible"
+      },        
+        {
+            "x": 920,
+            "y": 400,
+            "width": 30,
+            "height": 30,
+            "elasticity": 0.5,
+            "velocity": {
+                "x": 0,
+                "y": 0
+            },
+            "mass": 10,
+            "isStatic": false,
+            "texture": "box.png",
+            "description": "Box protège cible"
+      },
+        {
+            "x": 1080,
+            "y": 550,
+            "width": 30,
+            "height": 30,
+            "elasticity": 0.5,
+            "velocity": {
+                "x": 0,
+                "y": 0
+            },
+            "mass": 10,
+            "isStatic": false,
+            "texture": "box.png",
+            "description": "Box protège cible"
+      },        
+        {
+            "x": 1080,
+            "y": 520,
+            "width": 30,
+            "height": 30,
+            "elasticity": 0.5,
+            "velocity": {
+                "x": 0,
+                "y": 0
+            },
+            "mass": 10,
+            "isStatic": false,
+            "texture": "box.png",
+            "description": "Box protège cible"
+      },        
+        {
+            "x": 1080,
+            "y": 490,
+            "width": 30,
+            "height": 30,
+            "elasticity": 0.5,
+            "velocity": {
+                "x": 0,
+                "y": 0
+            },
+            "mass": 10,
+            "isStatic": false,
+            "texture": "box.png",
+            "description": "Box protège cible"
+      },        
+        {
+            "x": 1080,
+            "y": 460,
+            "width": 30,
+            "height": 30,
+            "elasticity": 0.5,
+            "velocity": {
+                "x": 0,
+                "y": 0
+            },
+            "mass": 10,
+            "isStatic": false,
+            "texture": "box.png",
+            "description": "Box protège cible"
+      },        
+        {
+            "x": 1080,
+            "y": 430,
+            "width": 30,
+            "height": 30,
+            "elasticity": 0.5,
+            "velocity": {
+                "x": 0,
+                "y": 0
+            },
+            "mass": 10,
+            "isStatic": false,
+            "texture": "box.png",
+            "description": "Box protège cible"
+      },        
+        {
+            "x": 1080,
+            "y": 400,
+            "width": 30,
+            "height": 30,
+            "elasticity": 0.5,
+            "velocity": {
+                "x": 0,
+                "y": 0
+            },
+            "mass": 10,
+            "isStatic": false,
+            "texture": "box.png",
+            "description": "Box protège cible"
+      },        
+        {
+            "x": 920,
+            "y": 370,
+            "width": 190,
+            "height": 30,
+            "elasticity": 0.5,
+            "velocity": {
+                "x": 0,
+                "y": 0
+            },
+            "mass": 10,
+            "isStatic": false,
+            "texture": "box.png",
+            "description": "Box protège cible"
+      }]
+}

@@ -39,6 +39,10 @@ class Vector {
     }
 
     normalize() {
+        var norm = this.norm();
+        if(norm == 0)
+            return new Vector(0,0);
+        
         return this.mult(1 / this.norm());
     }
 

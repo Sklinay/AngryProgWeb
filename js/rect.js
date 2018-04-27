@@ -1,25 +1,27 @@
 class Rect {
-    constructor(v, w, h) {
-        this.origin = v;
+    constructor(s) {
+        this.origin = new Vector(s.x, s.y);
         Object.defineProperty(this, "width", {
             writable: false,
-            value: w
+            value: s.width
         });
         Object.defineProperty(this, "height", {
             writable: false,
-            value: h
+            value: s.height
         });
 
     }
-
     move(v) {
         this.origin = this.origin.add(v);
     }
 
     mDiff(r) {
-        var orig = new Vector(r.origin.x - this.origin.x - this.width,
-            r.origin.y - this.origin.y - this.height);
-        return new Rect(orig, this.width + r.width, this.height + r.height);
+        return new Rect({
+            x: r.origin.x - this.origin.x - this.width,
+            y : r.origin.y - this.origin.y - this.height,
+            width: this.width + r.width,
+            height: this.height + r.height
+        });
 
     }
 

@@ -4,6 +4,7 @@ class Line {
         this.context = context;
         this.origin = o;
         this.target = t;
+        this.launcherPos = Vector.ZERO;
         this.drawing = false;
     };
 
@@ -27,34 +28,39 @@ class Line {
     getFireVec() {
         return this.target.mult(1 / Constants.fireScale);
     }
-    
-    beginAim(v){
-        this.setOrigin(v);        
+
+    beginAim(v) {
+        this.setOrigin(v);
         this.setTarget(v);
         this.startDrawn();
     }
-    
-    aiming(v){
+
+    aiming(v) {
         this.setTarget(v);
     }
-    
+
     fire(target) {
-        var sprite = new Sprite(this.context, 
-                                new Vector(this.origin.x - this.target.x, this.origin.y - this.target.y), 
-                                30, 30, 
-                                +document.getElementById("mass").value, 
-                                this.getFireVec(), 
-                                false, 
-                                'ressources/box.png');
-        
+        var s = {
+            x: this.launcherPos.x - this.target.x,
+            y: this.launcherPos.y - this.target.y,
+            width: 30,
+            height: 30,
+            mass: 1,
+            velocity: this.getFireVec(),
+            elasticity : 0.5,
+            isStatic: false,
+            texture: 'bird1.png'
+        };
+        var sprite = new Sprite(this.context, s);
+
         window.game.engine.addBody(sprite);
     }
 
     draw() {
         if (this.drawing) {
             this.context.beginPath();
-            this.context.moveTo(this.origin.x, this.origin.y);
-            this.context.lineTo(this.origin.x - this.target.x, this.origin.y - this.target.y);
+            this.context.moveTo(this.launcherPos.x, this.launcherPos.y);
+            this.context.lineTo(this.launcherPos.x - this.target.x, this.launcherPos.y - this.target.y);
             this.context.stroke();
         }
     }

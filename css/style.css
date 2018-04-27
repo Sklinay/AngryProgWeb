@@ -1,14 +1,21 @@
-body{margin: 0px;}
+body{margin: 0px;width: 100%;}
 .container{
     width: 100%;
-    text-align: center;
 }
 .canvasContainer{
-   margin: 0 auto;
-    text-align: center;
-}
-canvas {
+    position: relative;
     width: 1500px;
     height: 600px;
-    background-color: #AAAAAA;
+    margin: 0 auto;
 }
+canvas {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 1500px;
+    height: 600px;
+}
+#canvasJeu{
+    z-index: 10;
+}
+

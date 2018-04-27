@@ -8,13 +8,15 @@ var Constants = {
 };
 
 class Game {
-    constructor(canvas) {
+    constructor(canvas,canvasDecor) {
+        var test = new Loader(this,"level1.json");
+       
         this.canvas = canvas;
+        this.canvasDecor = canvasDecor;
         this.context = this.canvas.getContext("2d");
         this.engine = new Engine(this.canvas);
         this.renderer = new Renderer(this.canvas, this.engine)
-        this.initLevelTest();
-
+         test.load();
         var _this = this;
         var interval;
         interval = setInterval(function () {
@@ -27,16 +29,6 @@ class Game {
         }, 1000 / 60);
         this.initListener();
     }
-    initLevelTest() {
-        var wall1 = new Sprite(this.context, new Vector(0, 0), 1500, 20, Infinity, Vector.ZERO, true);
-        var wall2 = new Sprite(this.context, new Vector(0, 580), 1500, 20, Infinity, Vector.ZERO, true);
-        var wall3 = new Sprite(this.context, new Vector(0, 20), 20, 560, Infinity, Vector.ZERO, true);
-        var wall4 = new Sprite(this.context, new Vector(1480, 20), 20, 560, Infinity, Vector.ZERO, true);
-        this.engine.addBody(wall1);
-        this.engine.addBody(wall2);
-        this.engine.addBody(wall3);
-        this.engine.addBody(wall4);
-    }
 
     computeCursorPos(x, y) {
         var rect = this.canvas.getBoundingClientRect();
@@ -44,22 +36,20 @@ class Game {
     }
 
     initListener() {
-        var _this = this;
-        this.canvas.addEventListener("mousedown", function (ev) {
-            _this.engine.aimLine.beginAim(_this.computeCursorPos(ev.clientX, ev.clientY))
+        let _this = this;
+        window.addEventListener("mousedown", function (ev) {
+            _this.engine.aimLine.beginAim(new Vector(ev.clientX, ev.clientY))
         });
 
-        this.canvas.addEventListener("mousemove", function (ev) {
+        window.addEventListener("mousemove", function (ev) {
             if (!_this.engine.aimLine.drawing) return;
-            _this.engine.aimLine.aiming(_this.computeCursorPos(ev.clientX, ev.clientY))
+            _this.engine.aimLine.aiming(new Vector(ev.clientX, ev.clientY))
 
         });
 
-        this.canvas.addEventListener("mouseup", function (ev) {
+        window.addEventListener("mouseup", function (ev) {
             _this.engine.aimLine.stopDrawn();
             _this.engine.aimLine.fire();
         });
     }
-
-
 }

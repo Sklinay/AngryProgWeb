@@ -1,9 +1,10 @@
 class Engine {
-    constructor(canvas) {
-        this.canvas = canvas;
-        this.context = this.canvas.getContext("2d");
+    constructor(game) {
+        this.game = game;
+        this.canvas = this.game.canvasJeu;
+        this.context = this.game.contextJeu;
         this.bodies = [];
-        this.aimLine = new Line(this.context, Vector.ZERO, Vector.ZERO);
+        this.aimLine = new Line(this.game, Vector.ZERO, Vector.ZERO);
     }
     addBody(b) {
         this.bodies.push(b);

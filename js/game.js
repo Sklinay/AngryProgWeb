@@ -10,16 +10,24 @@ var Constants = {
 class Game {
     constructor(canvas,canvasDecor,canvasAmmo) {
         var test = new Loader(this,"level1.json");
-
+        this.canvasJeu = canvas;
+        this.contextJeu = this.canvasJeu.getContext("2d");
+        
         this.canvasDecor = canvasDecor;
+        this.contextDecor = this.canvasDecor.getContext("2d");
         this.canvasAmmo = canvasAmmo;
+        this.contextAmmo = this.canvasAmmo.getContext("2d");
+        
         this.decor = new Decor();
-        this.birds = {};
-        this.canvas = canvas;
-        this.context = this.canvas.getContext("2d");
-        this.engine = new Engine(this.canvas);
-        this.renderer = new Renderer(this.canvas, this.engine)
+        this.ammo = new Ammo(this);        
+        
+        this.engine = new Engine(this);
+        this.renderer = new Renderer(this.canvasJeu, this.engine)
          test.load();
+       
+    }
+    loadGame(){
+        
         var _this = this;
         var interval;
         interval = setInterval(function () {
@@ -30,9 +38,10 @@ class Game {
                 throw (e);
             }
         }, 1000 / 60);
+        this.ammo.update();
+        this.engine.aimLine.updateLauncher();
         this.initListener();
     }
-
     computeCursorPos(x, y) {
         var rect = this.canvas.getBoundingClientRect();
         return new Vector(x - rect.left, y - rect.top);
@@ -54,5 +63,10 @@ class Game {
             _this.engine.aimLine.stopDrawn();
             _this.engine.aimLine.fire();
         });
+        
+        canvasAmmo.addEventListener("click", function (ev) {
+            _this.ammo.selectingAmmo(ev.offsetX,ev.offsetY);
+        });
+        
     }
 }

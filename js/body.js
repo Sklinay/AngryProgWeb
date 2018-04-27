@@ -11,6 +11,7 @@ class Body extends Rect {
         this.hasCollision = false;
         this.isStatic = s.isStatic;
         this.angle = 0;
+        this.canCollide = (s.canCollide!=null?s.canCollide:true);
     }
 
     setCollision(b) {
@@ -40,6 +41,7 @@ class Body extends Rect {
 
 
     collision(b) {
+        if(!this.canCollide || !b.canCollide) return;
         var mdiff = this.mDiff(b);
         if (mdiff.hasOrigin()) { //Vérifie s'il y a collision entre b et this
             var vectors = [new Vector(0, mdiff.origin.y),

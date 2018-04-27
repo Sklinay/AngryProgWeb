@@ -14,11 +14,13 @@ class Rect {
     move(v) {
         this.origin = this.origin.add(v);
     }
-
+    moveAt(x, y) {
+        this.origin = new Vector(x, y);
+    }
     mDiff(r) {
         return new Rect({
             x: r.origin.x - this.origin.x - this.width,
-            y : r.origin.y - this.origin.y - this.height,
+            y: r.origin.y - this.origin.y - this.height,
             width: this.width + r.width,
             height: this.height + r.height
         });
@@ -28,5 +30,10 @@ class Rect {
     hasOrigin() {
         return (this.origin.x < 0 && this.origin.x + this.width > 0) &&
             (this.origin.y < 0 && this.origin.y + this.height > 0);
+    }
+    
+    hasThis(x, y) {
+        return (this.origin.x < x && this.origin.x + this.width > x) &&
+            (this.origin.y < y && this.origin.y + this.height > y);
     }
 }

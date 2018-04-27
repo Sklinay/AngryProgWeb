@@ -11,19 +11,34 @@
         "airFriction": 0.001,
         "firePower": 10
     },
-    "decorSettings":{
+    "decorSettings": {
         "typeDecor": "Snow"
     },
     "bird": [
         {
-            "name" : "basicBird",
+            "name": "basicBird",
             "width": 30,
             "height": 30,
+            "mass": 10,
+            "elasticity": 0.5,
             "description": "Basic bird",
             "damageFactor": 1,
             "speedFactor": 1,
             "amount": 3,
-            "texture": "bird1.png"
+            "texture": "bird1.png",
+            "defaultAmmo" : true
+        },
+        {
+            "name": "bigBird",
+            "width": 50,
+            "height": 50,
+            "mass": 20,
+            "elasticity": 0.5,
+            "description": "Big bird",
+            "damageFactor": 1,
+            "speedFactor": 1,
+            "amount": 4,
+            "texture": "bird2.png"
         }
     ],
     "target": [{

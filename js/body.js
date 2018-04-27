@@ -10,7 +10,6 @@ class Body extends Rect {
         this.force = Vector.ZERO;
         this.hasCollision = false;
         this.isStatic = s.isStatic;
-        this.angle = 0;
     }
 
     setCollision(b) {

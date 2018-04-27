@@ -42,6 +42,7 @@ class Game {
         let _this = this;
         window.addEventListener("mousedown", function (ev) {
             _this.engine.aimLine.beginAim(new Vector(ev.clientX, ev.clientY))
+            _this.engine.bodies[6].printInfo();
         });
 
         window.addEventListener("mousemove", function (ev) {

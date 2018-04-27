@@ -49,8 +49,8 @@ class Engine {
             if (!body.isStatic) {
                 //Impact de la gravité sur l'objet en fonction de sa masse;
                 
-                var forceFrottements = body.velocity.normalize().mult(Constants.airfriction);
-
+                var forceFrottements = body.velocity.normalize().mult(Constants.airfriction).mult(-1).div(body.mass); //Je remets la multiplication par -1 et la division par la masse en attedant
+                
                 var poids = Constants.gravity.mult(body.mass);
 
                 var sommeForces = forceFrottements.add(poids);

@@ -8,7 +8,7 @@
             "x": 0,
             "y": 0.001
         },
-        "airFriction": 0.0003,
+        "airFriction": 0.001,
         "firePower": 10
     },
     "decorSettings":{
@@ -16,9 +16,14 @@
     },
     "bird": [
         {
-            "description": "Bird Description",
-            "factorDamage": 1,
-            "speed": 1
+            "name" : "basicBird",
+            "width": 30,
+            "height": 30,
+            "description": "Basic bird",
+            "damageFactor": 1,
+            "speedFactor": 1,
+            "amount": 3,
+            "texture": "bird1.png"
         }
     ],
     "target": [{

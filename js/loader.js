@@ -35,5 +35,10 @@ class Loader {
             var s = data.target[i];
             this.game.engine.addBody(new Sprite(this.game.context, s));
         }
+        
+        for (var i = 0; i < data.bird.length; i++) {
+            var s = data.bird[i];
+            this.game.birds[s.name] = new Bird(s);
+        }
     }
 }

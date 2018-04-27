@@ -9,12 +9,12 @@ class Sprite extends Body {
         else {
             this.imagePath = "ressources/"+s.texture;
         }
+        this.image = new Image();
+        this.image.src = this.imagePath;
     }
 
     draw () {
-        var image = new Image();
-        image.src = this.imagePath;
-        this.context.drawImage(image, 0, 0, image.width, image.height, this.origin.x, this.origin.y, this.width, this.height);
+        this.context.drawImage(this.image, 0, 0, this.image.width, this.image.height, this.origin.x, this.origin.y, this.width, this.height);
         //this.context.fillRect(this.origin.x, this.origin.y, this.width, this.height);
     }
 

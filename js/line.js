@@ -45,7 +45,7 @@ class Line {
             y: this.launcherPos.y - this.target.y,
             width: 30,
             height: 30,
-            mass: 1,
+            mass: 10,
             velocity: this.getFireVec(),
             elasticity : 0.5,
             isStatic: false,

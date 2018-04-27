@@ -1,19 +1,20 @@
 var Constants = {
     gravity: new Vector(0, 0.001),
     elasticity: 0.5,
-    airfriction: new Vector(0.001, 0.001),
+    airfriction: 0.001,
     minimalSpeed: 0.05,
     fireScale: 130,
     minimalSpeed:0.01
 };
 
 class Game {
-    constructor(canvas,canvasDecor) {
+    constructor(canvas,canvasDecor,canvasAmmo) {
         var test = new Loader(this,"level1.json");
 
         this.canvasDecor = canvasDecor;
+        this.canvasAmmo = canvasAmmo;
         this.decor = new Decor();
-
+        this.birds = {};
         this.canvas = canvas;
         this.context = this.canvas.getContext("2d");
         this.engine = new Engine(this.canvas);

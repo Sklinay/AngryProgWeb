@@ -1,30 +1,27 @@
 # AngryProgWeb
-Bon en gros on a toute les fonctionnalités de base
-Faut ajouter un système de dégats au moment des colissions avec la cible et certains éléments du décors (fonctionnalité avancée pour éléments friable + fonctionnalité avancée pour dégat en fonction de la puissance du coup).
-Le canvas en arrière plan pour les éléments du décor n'est pas encore utilisé.
 
-Les éléments du décors devrait être donc écrit comme ça dans le json :
-...
-"decor": [{
-    "x": 50,
-    "y": 50,
-    "width": 150,
-    "height": 150,
-    "texture": "ressource.png",
-    "description": "Jolie arbre"
-  },{
-    "x": 150,
-    "y": 150,
-    "width": 150,
-    "height": 150,
-    "texture": "ressource.png",
-    "description": "Buisson dégueulasse"
-  }];
-...
+## Fonctionnalités de base
 
-et donc ensuite dans la fonction readData de Loader lire ces données et les ajoutés au canvasDecor (de la classe Game).
-J'ai pas implémenté le bordel qui gère le remplissage du canvas de décorations.
+- [X] Le joueur peut tirer des projectils avec une force variable
+- [X] Le niveau doit comporter au moins une cible
+- [X] La cible doit être protégée par des objets
+- [X] Données du niveau chargée depuis un fichier JSON
+- [X] Le jeu doit implémenter des mouvements réalistes
+- [X] Le rendu doit être fait dans un éléments canvas
+- [ ] Le rendu doit au minimum être 30 (idéalement 60) FPS. Informations de débugage affichées dans la page
 
+## Fonctionnalités avancées
+- [X] Objets friables
+- [X] Blessures
+- [ ] Cibles ou obstacles mobiles (selon trajet prédéfini)
+- [ ] Jeu complet
+- [ ] Éléments de reliefs
+- [X] Projectiles multiples
 
-
-Faudrait voir ce qu'on va faire comme last fonctionnalité avancée aussi. (Il en faut mini 3 parmis les 6 proposées pour avoir le max de points)
+## Note
+- [ ] Refonte du moteur physique en cours.
+- [ ] Créer un vrai niveau avec de chouettes textures
+- [ ] Jeu complet pour montrer de quoi est capable notre jeu. (Plusieurs niveaux et ptète un système de score (par exemple selon : nombre de "munition restante", ennemies tués, temps..etc))
+- [ ] Peaufiner le code
+- [ ] Commenter le code
+- [ ] Rapport succint

@@ -16,7 +16,11 @@ class Body extends Rect {
         this.isStatic = (s.isStatic === undefined ? false : s.isStatic);
         this.angle = 0;
         this.canCollide = (s.canCollide != null ? s.canCollide : true);
-        this.life = (s.life === undefined ? Infinity : s.life);
+
+        this.lifeMax = (s.life === undefined ? Infinity : s.life);
+        this.life = this.lifeMax;
+        this.damageLevel = 0; //niveau de détérioration de l'objet
+
         this.damageFactor = (s.damageFactor === undefined ? 0 : s.damageFactor);
         this.speedFactor = (s.speedFactor === undefined ? 1 : s.speedFactor);
     }
@@ -27,8 +31,21 @@ class Body extends Rect {
     takeDamage(damage){
         if(damage > 20){
             this.life -= damage;
+            this.updateDamageLevel();
         }
     }
+    //mise à jour du niveau de détérioration de l'objet : 2=très mauvais état, 1=abimé, 0=neuf
+    updateDamageLevel(){
+        if (this.life > 0) {
+            if (this.life < this.lifeMax/2) {
+                this.damageLevel = 2;
+            }
+            else if (this.life > this.lifeMax/2) {
+                this.damageLevel = 1;
+            }
+        }
+    }
+
     collision(b) {
         if (!this.canCollide || !b.canCollide) return;
         var mdiff = this.mDiff(b);
@@ -76,14 +93,14 @@ class Body extends Rect {
 
             b.setCollision(true);
             this.setCollision(true);
-    
+
             if(this.life != Infinity){
                 this.takeDamage(b.velocity.norm() * Constants.baseDamageFactor * b.damageFactor);
             }
             if(b.life != Infinity){
                 b.takeDamage(this.velocity.norm() * Constants.baseDamageFactor * this.damageFactor);
             }
-            
+
             return {
                 vecPene: vecPeneR,
                 kv: kv,

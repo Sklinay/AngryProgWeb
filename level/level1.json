@@ -12,7 +12,7 @@
        "baseDamageFactor": 120
     },
     "decorSettings": {
-        "typeDecor": "Snow"
+        "typeDecor": "Sand"
     },
     "bird": [
         {
@@ -80,7 +80,7 @@
             },
             "mass": null,
             "isStatic": true,
-            "texture": "default.png",
+            "material": "Invincible",
             "description": "Mur du haut"
       },
         {
@@ -95,7 +95,7 @@
             },
             "mass": null,
             "isStatic": true,
-            "texture": "default.png",
+            "material": "Invincible",
             "description": "Mur du bas"
 
       },
@@ -111,7 +111,7 @@
             },
             "mass": null,
             "isStatic": true,
-            "texture": "default.png",
+            "material": "Invincible",
             "description": "Mur de gauche"
       },
         {
@@ -126,7 +126,7 @@
             },
             "mass": null,
             "isStatic": true,
-            "texture": "default.png",
+            "material": "Invincible",
             "description": "Mur de droite"
       },
         {
@@ -141,7 +141,7 @@
             },
             "mass": null,
             "isStatic": true,
-            "texture": "default.png",
+            "material": "Invincible",
             "description": "Mur obstacle"
       },
         {
@@ -156,7 +156,7 @@
             },
             "mass": 10,
             "isStatic": false,
-            "texture": "box.png",
+            "material": "Bois",
             "description": "Box protège cible"
       },
         {
@@ -169,10 +169,10 @@
                 "x": 0,
                 "y": 0
             },
-            "mass": 10,                    
+            "mass": 10,
             "life" : 250,
             "isStatic": false,
-            "texture": "box.png",
+            "material": "Bois",
             "description": "Box protège cible"
       },
         {
@@ -185,10 +185,10 @@
                 "x": 0,
                 "y": 0
             },
-            "mass": 10,            
+            "mass": 10,
             "life" : 250,
             "isStatic": false,
-            "texture": "box.png",
+            "material": "Bois",
             "description": "Box protège cible"
       },
         {
@@ -201,10 +201,10 @@
                 "x": 0,
                 "y": 0
             },
-            "mass": 10,            
+            "mass": 10,
             "life" : 250,
             "isStatic": false,
-            "texture": "box.png",
+            "material": "Bois",
             "description": "Box protège cible"
       },
         {
@@ -217,10 +217,10 @@
                 "x": 0,
                 "y": 0
             },
-            "mass": 10,            
+            "mass": 10,
             "life" : 250,
             "isStatic": false,
-            "texture": "box.png",
+            "material": "Bois",
             "description": "Box protège cible"
       },
         {
@@ -233,10 +233,10 @@
                 "x": 0,
                 "y": 0
             },
-            "mass": 10,            
+            "mass": 10,
             "life" : 250,
             "isStatic": false,
-            "texture": "box.png",
+            "material": "Bois",
             "description": "Box protège cible"
       },
         {
@@ -249,10 +249,10 @@
                 "x": 0,
                 "y": 0
             },
-            "mass": 10,            
+            "mass": 10,
             "life" : 250,
             "isStatic": false,
-            "texture": "box.png",
+            "material": "Bois",
             "description": "Box protège cible"
       },
         {
@@ -265,10 +265,10 @@
                 "x": 0,
                 "y": 0
             },
-            "mass": 10,            
+            "mass": 10,
             "life" : 250,
             "isStatic": false,
-            "texture": "box.png",
+            "material": "Bois",
             "description": "Box protège cible"
       },
         {
@@ -281,10 +281,10 @@
                 "x": 0,
                 "y": 0
             },
-            "mass": 10,            
+            "mass": 10,
             "life" : 250,
             "isStatic": false,
-            "texture": "box.png",
+            "material": "Bois",
             "description": "Box protège cible"
       },
         {
@@ -297,10 +297,10 @@
                 "x": 0,
                 "y": 0
             },
-            "mass": 10,            
+            "mass": 10,
             "life" : 250,
             "isStatic": false,
-            "texture": "box.png",
+            "material": "Bois",
             "description": "Box protège cible"
       },
         {
@@ -313,10 +313,10 @@
                 "x": 0,
                 "y": 0
             },
-            "mass": 10,            
+            "mass": 10,
             "life" : 250,
             "isStatic": false,
-            "texture": "box.png",
+            "material": "Bois",
             "description": "Box protège cible"
       },
         {
@@ -329,10 +329,10 @@
                 "x": 0,
                 "y": 0
             },
-            "mass": 10,            
+            "mass": 10,
             "life" : 250,
             "isStatic": false,
-            "texture": "box.png",
+            "material": "Bois",
             "description": "Box protège cible"
       },
         {
@@ -345,10 +345,10 @@
                 "x": 0,
                 "y": 0
             },
-            "mass": 10,            
+            "mass": 10,
             "life" : 250,
             "isStatic": false,
-            "texture": "box.png",
+            "material": "Bois",
             "description": "Box protège cible"
       }]
 }

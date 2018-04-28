@@ -28,19 +28,19 @@ class Loader {
 
         for (var i = 0; i < data.obstacle.length; i++) {
             var s = data.obstacle[i];
-            this.game.engine.addBody(new Sprite(this.game.contextJeu, s));
+            this.game.engine.addBody(new Sprite(this.game.contextJeu, s, "obstacle"));
         }
 
         for (var i = 0; i < data.target.length; i++) {
             var s = data.target[i];
-            this.game.engine.addBody(new Sprite(this.game.contextJeu, s));
+            this.game.engine.addBody(new Sprite(this.game.contextJeu, s, "target"));
         }
-        
+
         for (var i = 0; i < data.bird.length; i++) {
             var s = data.bird[i];
             this.game.ammo.addAmmo(new Bird(this.game.contextAmmo,s),s.defaultAmmo);
         }
-        
+
         for (var i = 0; i < data.decor.length; i++) {
             var s = data.decor[i];
             this.game.decor.addDecor(s);

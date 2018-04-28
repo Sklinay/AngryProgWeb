@@ -1,14 +1,26 @@
 class Sprite extends Body {
 
-    constructor(context, s) {
+    constructor(context, s, type) {
         super(s);
         this.context = context;
-        if (s.texture == undefined) {
-            this.imagePath = "ressources/default.png";
+        this.type = type;
+        this.updateImage(s, type);
+    }
+
+    updateImage(s, type) {
+        //si il s'agit d'un obstacle on check le matériau
+        if (this.type == "obstacle") {
+            this.imagePath = "ressources/Blocs/"+s.material+"/damage"+this.damageLevel+".png";
         }
         else {
-            this.imagePath = "ressources/"+s.texture;
+            if (s.texture == undefined) {
+                this.imagePath = "ressources/default.png";
+            }
+            else {
+                this.imagePath = "ressources/"+s.texture;
+            }
         }
+
         this.image = new Image();
         this.image.src = this.imagePath;
     }

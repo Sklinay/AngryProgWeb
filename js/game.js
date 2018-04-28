@@ -11,7 +11,7 @@ var Constants = {
 class Game {
     constructor(canvas,canvasDecor,canvasAmmo, canvasMenu) {
         this.pause = false;
-        var test = new Loader(this,"level1.json");
+        this.currentLevel = new Loader(this,"level1.json");
         this.canvasJeu = canvas;
         this.contextJeu = this.canvasJeu.getContext("2d");
 
@@ -30,8 +30,10 @@ class Game {
 
         this.engine = new Engine(this);
         this.renderer = new Renderer(this.canvasJeu, this.engine)
-         test.load();
-
+        this.loadLevel();
+    }
+    loadLevel(){
+        this.currentLevel.load();
     }
     loadGame(){
 
@@ -88,7 +90,7 @@ class Game {
             _this.ammo.selectingAmmo(ev.offsetX,ev.offsetY);
         });
         //quand on clique sur echap, on affiche ou désaffiche le menu
-        window.addEventListener('keypress', (event) => {
+        window.addEventListener('keyup', (event) => {
           if (event.key == "Escape") {
               if (this.menu.shown) {
                   this.menu.close();

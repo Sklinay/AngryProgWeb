@@ -1,5 +1,5 @@
 class MenuButton {
-    constructor(name, imagePath, canvas, context,x,y){
+    constructor(name, imagePath, canvas, context,x,y, width, height, clickable, game){
 		this.name = name;
 		this.imagePath = imagePath;
 		this.canvas = canvas;
@@ -8,8 +8,10 @@ class MenuButton {
         this.image.src = this.imagePath;
 		this.x = x;
 		this.y = y;
-		this.width = 100;
-		this.height = 100;
+		this.width = width;
+		this.height = height;
+		this.clickable = clickable;
+		this.game = game;
 	}
 	draw(){
         this.context.fillStyle ='#e7dfc2';
@@ -18,6 +20,10 @@ class MenuButton {
 		this.context.lineWidth = 10;
 		this.context.strokeRect(this.x+10, this.y+10, this.width - 20, this.height - 20);
 		this.drawImage();
+		if (!this.clickable) {
+			this.context.fillStyle ='rgba(0,0,0,0.8)'
+			this.context.fillRect(this.x, this.y, this.width, this.height);
+		}
 	}
 	drawImage(){
 		if(!this.image.complete){
@@ -35,5 +41,7 @@ class MenuButton {
     }
 	click(){
 		console.log("clic");
+		this.game.currentLevel = new Loader(this.game,"level2.json");
+		this.game.loadLevel();
 	}
 }

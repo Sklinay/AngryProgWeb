@@ -129,7 +129,7 @@ class Menu {
     }
     //affiche si la partie est en cours, gagnée ou perdue
     drawInfo(){
-        this.context.font = "bold 60px Arial";
+        this.context.font = "bold 60px Grobold";
         this.context.strokeStyle = "#e7dfc2";
         this.context.fillStyle = "#A06D3D";
         this.context.textAlign = "center";

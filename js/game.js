@@ -5,7 +5,8 @@ var Constants = {
     minimalSpeed: 0.05,
     fireScale: 130,
     minimalSpeed:0.01,
-    baseDamageFactor:1
+    baseDamageFactor:1,
+    ressourcesPath:"ressources/"
 };
 
 class Game {

@@ -17,7 +17,7 @@ class Decor {
         dataS.texture = this.type + "/" + dataS.texture;
         this.decors.push(new Sprite(this.game.contextDecor, dataS));
     }
-    
+
     draw() {
         var ptrn = this.contextDecor.createPattern(this.background, 'repeat'); // Create a pattern with this image, and set it to "repeat".
         this.contextDecor.fillStyle = ptrn;

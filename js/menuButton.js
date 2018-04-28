@@ -42,9 +42,17 @@ class MenuButton {
 	click(){
 		if (this.name == "Restart level") {
 			console.log("Restarting level...");
+			console.log(this.game.currentLevel.levelNum);
+			this.game.currentLevel = new Loader(this.game, this.game.menu.levels[this.game.currentLevel.levelNum].data, this.game.currentLevel.levelNum);
+			this.game.reload();
+			this.game.menu.close();
 		}
 		else if (this.name == "Next level"){
 			console.log("Loading next level...");
+			this.game.currentLevel = new Loader(this.game, this.game.menu.levels[this.game.currentLevel.levelNum+1].data, this.game.currentLevel.levelNum+1);
+			this.game.reload();
+			this.game.menu.close();
+			this.game.menu.initButtons();
 		}
 	}
 }

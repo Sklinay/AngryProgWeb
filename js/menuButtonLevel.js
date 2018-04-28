@@ -1,7 +1,8 @@
 class MenuButtonLevel extends MenuButton {
-	constructor(name, dataPath, imagePath, canvas, context,x,y, width, height, clickable, game){
+	constructor(name, dataPath, numLevel, imagePath, canvas, context,x,y, width, height, clickable, game){
 		super(name, imagePath, canvas, context,x,y, width, height, clickable, game);
 		this.dataPath = dataPath;
+		this.numLevel = numLevel;
 	}
 	draw(){
 		this.context.fillStyle ='#e7dfc2';
@@ -11,6 +12,10 @@ class MenuButtonLevel extends MenuButton {
 		this.context.strokeRect(this.x+10, this.y+10, this.width - 20, this.height - 20);
 		this.drawImage();
 		this.drawText();
+		if (!this.clickable) {
+			this.context.fillStyle ='rgba(0,0,0,0.8)'
+			this.context.fillRect(this.x, this.y, this.width, this.height);
+		}
 	}
 	drawImage(){
 		if(!this.image.complete){
@@ -30,9 +35,9 @@ class MenuButtonLevel extends MenuButton {
 	}
 	click(){
 		console.log("Loading "+this.name);
-		console.log(this.dataPath);
-		this.game.currentLevel = new Loader(this.game, this.dataPath);
+		this.game.currentLevel = new Loader(this.game, this.dataPath, this.numLevel);
 		this.game.reload();
 		this.game.menu.close();
+		this.game.menu.initButtons();
 	}
 }

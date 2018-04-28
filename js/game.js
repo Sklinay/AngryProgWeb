@@ -13,7 +13,8 @@ class Game {
     constructor(canvas, canvasDecor, canvasAmmo, canvasMenu) {
         this.firstStart = true;
         this.pause = false;
-        this.currentLevel = new Loader(this, "glacier.json");
+        this.currentLevel = new Loader(this, "plaine.json", 0);
+        this.nbWins = 0;
         this.canvasJeu = canvas;
         this.contextJeu = this.canvasJeu.getContext("2d");
 

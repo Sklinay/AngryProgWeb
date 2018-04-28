@@ -15,13 +15,15 @@ class Menu {
         this.buttonRestart = new MenuButton("Restart level", "ressources/Boutons/restart.png", this.canvas, this.context,
                                             this.centre.x-this.sizeButton-20, this.centre.y+this.sizeButton+20,
                                             this.sizeButton, this.sizeButton, true, this.game);
+        var clickable = this.game.currentLevel.levelNum+1 <= this.game.nbWins;
+
         this.buttonNext = new MenuButton("Next level", "ressources/Boutons/next_level.png", this.canvas, this.context,
                                             this.centre.x+20, this.centre.y+this.sizeButton+20,
-                                            this.sizeButton, this.sizeButton, false, this.game);
+                                            this.sizeButton, this.sizeButton, clickable, this.game);
         this.buttons.push(this.buttonRestart);
         this.buttons.push(this.buttonNext);
     }
-    //boutons de choix de niveaux
+    //création des boutons de choix de niveaux avec leurs coordonnées en fonction de leur nombre
     initButtonsLevels(){
         var nbLevels = this.levels.length; //pour que ça prenne - de place sur les lignes
         this.buttonsLevels = new Array();
@@ -29,19 +31,28 @@ class Menu {
         if (nbLevels%2 == 0) {
             //partie gauche
             var x = nbLevels - 1;
+            var clickable = false;
             for (var i = 0; i < nbLevels/2; i++) {
-                this.buttonsLevels.push(new MenuButtonLevel(this.levels[i].name, this.levels[i].data, this.levels[i].miniature, this.canvas, this.context,
+                if (i <= this.game.nbWins) {
+                    var clickable = true;
+                }
+                this.buttonsLevels.push(new MenuButtonLevel(this.levels[i].name, this.levels[i].data, i, this.levels[i].miniature, this.canvas, this.context,
                                                             this.centre.x-(this.sizeButtonLevel)*((nbLevels/2)-i) - 20*x, this.centre.y-120,
-                                                            this.sizeButtonLevel, this.sizeButtonLevel, true, this.game));
+                                                            this.sizeButtonLevel, this.sizeButtonLevel, clickable, this.game));
                 x = x -2;
+                clickable = false;
             }
             //partie droite
             var y = 0;
             for (i; i < nbLevels; i++) {
-                this.buttonsLevels.push(new MenuButtonLevel(this.levels[i].name, this.levels[i].data, this.levels[i].miniature, this.canvas, this.context,
+                if (i <= this.game.nbWins) {
+                    var clickable = true;
+                }
+                this.buttonsLevels.push(new MenuButtonLevel(this.levels[i].name, this.levels[i].data, i, this.levels[i].miniature, this.canvas, this.context,
                                                             this.centre.x+20*(y+1)+(this.sizeButtonLevel+20)*y, this.centre.y-120,
-                                                            this.sizeButtonLevel, this.sizeButtonLevel, true, this.game));
+                                                            this.sizeButtonLevel, this.sizeButtonLevel, clickable, this.game));
                 y++;
+                clickable = false;
             }
         }
         /*Si le nb de niveaux est impair*/
@@ -51,20 +62,28 @@ class Menu {
             var x = halfLevels;
             var pos;
             for (var i = 0; i < halfLevels+1; i++) {
+                if (i <= this.game.nbWins) {
+                    var clickable = true;
+                }
                 pos = this.centre.x - this.sizeButtonLevel*x - 20*(2*x) - this.sizeButtonLevel/2;
-                this.buttonsLevels.push(new MenuButtonLevel(this.levels[i].name, this.levels[i].data, this.levels[i].miniature, this.canvas, this.context,
+                this.buttonsLevels.push(new MenuButtonLevel(this.levels[i].name, this.levels[i].data, i, this.levels[i].miniature, this.canvas, this.context,
                                                             pos, this.centre.y-120,
-                                                            this.sizeButtonLevel, this.sizeButtonLevel, true, this.game));
+                                                            this.sizeButtonLevel, this.sizeButtonLevel, clickable, this.game));
                 x = x-1;
+                clickable = false;
             }
             //partie droite
             x = 1;
             for (i; i < nbLevels; i++) {
+                if (i <= this.game.nbWins) {
+                    var clickable = true;
+                }
                 pos = this.centre.x + this.sizeButtonLevel/2 + 20*x*2 + this.sizeButtonLevel*(x-1);
-                this.buttonsLevels.push(new MenuButtonLevel(this.levels[i].name, this.levels[i].data, this.levels[i].miniature, this.canvas, this.context,
+                this.buttonsLevels.push(new MenuButtonLevel(this.levels[i].name, this.levels[i].data, i, this.levels[i].miniature, this.canvas, this.context,
                                                             pos, this.centre.y-120,
-                                                            this.sizeButtonLevel, this.sizeButtonLevel, true, this.game));
+                                                            this.sizeButtonLevel, this.sizeButtonLevel, clickable, this.game));
                 x++;
+                clickable = false;
             }
         }
     }
@@ -103,12 +122,12 @@ class Menu {
     //check si on click sur un bouton
     selectingButton(x,y){
         for (var i = 0; i < this.buttons.length; i++) {
-            if (this.buttons[i].hasThis(x, y)) {
+            if (this.buttons[i].hasThis(x, y) && this.buttons[i].clickable) {
                 this.buttons[i].click();
             }
         }
         for (var i = 0; i < this.buttonsLevels.length; i++) {
-            if (this.buttonsLevels[i].hasThis(x, y)) {
+            if (this.buttonsLevels[i].hasThis(x, y) && this.buttonsLevels[i].clickable) {
                 this.buttonsLevels[i].click();
             }
         }

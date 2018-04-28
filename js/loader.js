@@ -1,6 +1,7 @@
 class Loader {
-    constructor(game, levelName) {
+    constructor(game, levelName, levelNum) {
         this.levelName = levelName;
+        this.levelNum = levelNum;
         this.game = game;
     }
 

@@ -1,0 +1,12 @@
+{
+	"levels": [
+		{
+			"name": "plaine",
+			"miniature": "plaine.png"
+		},
+		{
+			"name": "desert",
+			"miniature": "desert.png"
+		}
+	]
+}

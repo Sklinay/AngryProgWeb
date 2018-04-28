@@ -25,3 +25,6 @@ canvas {
     height: 50px;
     z-index: 11;
 }
+#canvasMenu {
+    z-index: 20;
+}

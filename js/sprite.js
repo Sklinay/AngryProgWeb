@@ -4,20 +4,21 @@ class Sprite extends Body {
         super(s);
         this.context = context;
         this.type = type;
-        this.updateImage(s, type);
+        this.material = s.material;
+        this.updateImage(s.texture);
     }
 
-    updateImage(s, type) {
+    updateImage(texture) {
         //si il s'agit d'un obstacle on check le matériau
         if (this.type == "obstacle") {
-            this.imagePath = "ressources/Blocs/"+s.material+"/damage"+this.damageLevel+".png";
+            this.imagePath = "ressources/Blocs/"+this.material+"/damage"+this.damageLevel+".png";
         }
         else {
-            if (s.texture == undefined) {
+            if (texture == undefined) {
                 this.imagePath = "ressources/default.png";
             }
             else {
-                this.imagePath = "ressources/"+s.texture;
+                this.imagePath = "ressources/"+texture;
             }
         }
 

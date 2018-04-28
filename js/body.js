@@ -32,6 +32,7 @@ class Body extends Rect {
         if(damage > 20){
             this.life -= damage;
             this.updateDamageLevel();
+            //Sprite(this).updateImage();
         }
     }
     //mise à jour du niveau de détérioration de l'objet : 2=très mauvais état, 1=abimé, 0=neuf

@@ -9,32 +9,39 @@ var Constants = {
 };
 
 class Game {
-    constructor(canvas,canvasDecor,canvasAmmo) {
+    constructor(canvas,canvasDecor,canvasAmmo, canvasMenu) {
+        this.pause = false;
         var test = new Loader(this,"level1.json");
         this.canvasJeu = canvas;
         this.contextJeu = this.canvasJeu.getContext("2d");
-        
+
         this.canvasDecor = canvasDecor;
         this.contextDecor = this.canvasDecor.getContext("2d");
-        
+
         this.canvasAmmo = canvasAmmo;
         this.contextAmmo = this.canvasAmmo.getContext("2d");
-        
+
+        this.canvasMenu = canvasMenu;
+        this.contextMenu = this.canvasMenu.getContext("2d");
+
         this.decor = new Decor(this);
-        this.ammo = new Ammo(this);        
-        
+        this.ammo = new Ammo(this);
+        this.menu = new Menu(this);
+
         this.engine = new Engine(this);
         this.renderer = new Renderer(this.canvasJeu, this.engine)
          test.load();
-       
+
     }
     loadGame(){
-        
+
         var _this = this;
         var interval;
         interval = setInterval(function () {
             try {
-                _this.renderer.update(1000 / 60);
+                if (!_this.pause) {
+                    _this.renderer.update(1000 / 60);
+                }
             } catch (e) {
                 clearInterval(interval);
                 throw (e);
@@ -53,7 +60,9 @@ class Game {
     initListener() {
         let _this = this;
         window.addEventListener("mousedown", function (ev) {
-            _this.engine.aimLine.beginAim(new Vector(ev.clientX, ev.clientY))
+            if (_this.menu.shown == false) {
+                _this.engine.aimLine.beginAim(new Vector(ev.clientX, ev.clientY))
+            }
         });
 
         window.addEventListener("mousemove", function (ev) {
@@ -63,13 +72,32 @@ class Game {
         });
 
         window.addEventListener("mouseup", function (ev) {
-            _this.engine.aimLine.stopDrawn();
-            _this.engine.aimLine.fire();
+            if (_this.menu.shown == false) {
+                _this.engine.aimLine.stopDrawn();
+                _this.engine.aimLine.fire();
+            }
         });
-        
+
         canvasAmmo.addEventListener("click", function (ev) {
-            _this.ammo.selectingAmmo(ev.offsetX,ev.offsetY);
+            if (_this.menu.shown == false) {
+                _this.ammo.selectingAmmo(ev.offsetX,ev.offsetY);
+            }
+            else {
+                _this.menu.selectingButton(ev.offsetX,ev.offsetY);
+            }
         });
-        
+        //quand on clique sur echap, on affiche ou désaffiche le menu
+        window.addEventListener('keypress', (event) => {
+          if (event.key == "Escape") {
+              if (this.menu.shown) {
+                  this.menu.close();
+              }
+              else {
+                  this.menu.open();
+              }
+              this.menu.shown = !this.menu.shown;
+          }
+        });
+
     }
 }

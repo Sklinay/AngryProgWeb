@@ -92,11 +92,13 @@ class Menu {
     open(){
         this.game.pause = true;
         this.draw();
+        this.shown = true;
     }
     //ferme le menu
     close(){
         this.game.pause = false;
         this.clearCanvas();
+        this.shown = false;
     }
     //check si on click sur un bouton
     selectingButton(x,y){

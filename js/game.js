@@ -52,7 +52,7 @@ class Game {
 
         this.decor.update();
         if (this.firstStart) {
-            this.firstStart = false;            
+            this.firstStart = false;
             var interval;
             interval = setInterval(function () {
                 try {
@@ -110,7 +110,6 @@ class Game {
                 } else {
                     this.menu.open();
                 }
-                this.menu.shown = !this.menu.shown;
             }
         });
 

@@ -33,5 +33,6 @@ class MenuButtonLevel extends MenuButton {
 		console.log(this.dataPath);
 		this.game.currentLevel = new Loader(this.game, this.dataPath);
 		this.game.reload();
+		this.game.menu.close();
 	}
 }

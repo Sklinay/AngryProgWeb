@@ -12,7 +12,7 @@ var Constants = {
 class Game {
     constructor(canvas,canvasDecor,canvasAmmo, canvasMenu) {
         this.pause = false;
-        this.currentLevel = new Loader(this,"level1.json");
+        this.currentLevel = new Loader(this,"glacier.json");
         this.canvasJeu = canvas;
         this.contextJeu = this.canvasJeu.getContext("2d");
 
@@ -35,6 +35,12 @@ class Game {
     }
     loadLevel(){
         this.currentLevel.load();
+    }
+    reload(){
+        this.engine.bodies = [];
+        this.ammo.birds = [];
+        this.decor.decors = [];
+        this.loadLevel();
     }
     loadGame(){
 

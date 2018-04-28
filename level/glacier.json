@@ -25,7 +25,8 @@
             "damageFactor": 1,
             "speedFactor": 1.2,
             "amount": 3,
-            "texture": "bird1.png",
+            "texture": "Aliens/Alien1/",
+            "textureState": 1,
             "defaultAmmo": true,
             "life" : 350
         },
@@ -39,7 +40,8 @@
             "damageFactor": 4,
             "speedFactor": 0.8,
             "amount": 4,
-            "texture": "bird2.png",
+            "texture": "Aliens/Alien2/",
+            "textureState": 1,
             "life" : 350
         }
     ],
@@ -56,7 +58,8 @@
         },
         "mass": 10,
         "isStatic": false,
-        "texture": "ennemy.png",
+        "texture": "Ennemies/Square/",
+        "textureState": 3,
         "description": "ennemy1"
     }],
     "decor": [{
@@ -80,7 +83,7 @@
             },
             "mass": null,
             "isStatic": true,
-            "material": "Invincible",
+            "texture" : "Blocs/Invincible/",
             "description": "Mur du haut"
       },
         {
@@ -95,7 +98,7 @@
             },
             "mass": null,
             "isStatic": true,
-            "material": "Invincible",
+            "texture" : "Blocs/Invincible/",
             "description": "Mur du bas"
 
       },
@@ -111,7 +114,7 @@
             },
             "mass": null,
             "isStatic": true,
-            "material": "Invincible",
+            "texture" : "Blocs/Invincible/",
             "description": "Mur de gauche"
       },
         {
@@ -126,7 +129,7 @@
             },
             "mass": null,
             "isStatic": true,
-            "material": "Invincible",
+            "texture" : "Blocs/Invincible/",
             "description": "Mur de droite"
       },
         {
@@ -141,7 +144,7 @@
             },
             "mass": null,
             "isStatic": true,
-            "material": "Invincible",
+            "texture" : "Blocs/Invincible/",
             "description": "Mur obstacle"
       },
         {
@@ -156,7 +159,8 @@
             },
             "mass": 10,
             "isStatic": false,
-            "material": "Bois",
+            "texture" : "Blocs/Bois/",
+            "textureState": 3,
             "description": "Box protège cible"
       },
         {
@@ -172,7 +176,8 @@
             "mass": 10,
             "life" : 250,
             "isStatic": false,
-            "material": "Bois",
+            "texture" : "Blocs/Bois/",
+            "textureState": 3,
             "description": "Box protège cible"
       },
         {
@@ -188,7 +193,8 @@
             "mass": 10,
             "life" : 250,
             "isStatic": false,
-            "material": "Bois",
+            "texture" : "Blocs/Bois/",
+            "textureState": 3,
             "description": "Box protège cible"
       },
         {
@@ -204,7 +210,8 @@
             "mass": 10,
             "life" : 250,
             "isStatic": false,
-            "material": "Bois",
+            "texture" : "Blocs/Bois/",
+            "textureState": 3,
             "description": "Box protège cible"
       },
         {
@@ -220,7 +227,8 @@
             "mass": 10,
             "life" : 250,
             "isStatic": false,
-            "material": "Bois",
+            "texture" : "Blocs/Bois/",
+            "textureState": 3,
             "description": "Box protège cible"
       },
         {
@@ -236,7 +244,8 @@
             "mass": 10,
             "life" : 250,
             "isStatic": false,
-            "material": "Bois",
+            "texture" : "Blocs/Bois/",
+            "textureState": 3,
             "description": "Box protège cible"
       },
         {
@@ -252,7 +261,8 @@
             "mass": 10,
             "life" : 250,
             "isStatic": false,
-            "material": "Bois",
+            "texture" : "Blocs/Bois/",
+            "textureState": 3,
             "description": "Box protège cible"
       },
         {
@@ -268,7 +278,8 @@
             "mass": 10,
             "life" : 250,
             "isStatic": false,
-            "material": "Bois",
+            "texture" : "Blocs/Bois/",
+            "textureState": 3,
             "description": "Box protège cible"
       },
         {
@@ -284,7 +295,8 @@
             "mass": 10,
             "life" : 250,
             "isStatic": false,
-            "material": "Bois",
+            "texture" : "Blocs/Bois/",
+            "textureState": 3,
             "description": "Box protège cible"
       },
         {
@@ -300,7 +312,8 @@
             "mass": 10,
             "life" : 250,
             "isStatic": false,
-            "material": "Bois",
+            "texture" : "Blocs/Bois/",
+            "textureState": 3,
             "description": "Box protège cible"
       },
         {
@@ -316,7 +329,8 @@
             "mass": 10,
             "life" : 250,
             "isStatic": false,
-            "material": "Bois",
+            "texture" : "Blocs/Bois/",
+            "textureState": 3,
             "description": "Box protège cible"
       },
         {
@@ -332,7 +346,8 @@
             "mass": 10,
             "life" : 250,
             "isStatic": false,
-            "material": "Bois",
+            "texture" : "Blocs/Bois/",
+            "textureState": 3,
             "description": "Box protège cible"
       },
         {
@@ -348,7 +363,8 @@
             "mass": 10,
             "life" : 250,
             "isStatic": false,
-            "material": "Bois",
+            "texture" : "Blocs/Bois/",
+            "textureState": 3,
             "description": "Box protège cible"
       }]
 }

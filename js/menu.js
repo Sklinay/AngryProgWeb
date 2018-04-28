@@ -30,17 +30,17 @@ class Menu {
             //partie gauche
             var x = nbLevels - 1;
             for (var i = 0; i < nbLevels/2; i++) {
-                this.buttonsLevels.push(new MenuButtonLevel(this.levels[i].name, i+1, this.levels[i].miniature, this.canvas, this.context,
+                this.buttonsLevels.push(new MenuButtonLevel(this.levels[i].name, this.levels[i].data, this.levels[i].miniature, this.canvas, this.context,
                                                             this.centre.x-(this.sizeButtonLevel)*((nbLevels/2)-i) - 20*x, this.centre.y-120,
-                                                            this.sizeButtonLevel, this.sizeButtonLevel, true));
+                                                            this.sizeButtonLevel, this.sizeButtonLevel, true, this.game));
                 x = x -2;
             }
             //partie droite
             var y = 0;
             for (i; i < nbLevels; i++) {
-                this.buttonsLevels.push(new MenuButtonLevel(this.levels[i].name, i+1, this.levels[i].miniature, this.canvas, this.context,
+                this.buttonsLevels.push(new MenuButtonLevel(this.levels[i].name, this.levels[i].data, this.levels[i].miniature, this.canvas, this.context,
                                                             this.centre.x+20*(y+1)+(this.sizeButtonLevel+20)*y, this.centre.y-120,
-                                                            this.sizeButtonLevel, this.sizeButtonLevel, true));
+                                                            this.sizeButtonLevel, this.sizeButtonLevel, true, this.game));
                 y++;
             }
         }
@@ -52,18 +52,18 @@ class Menu {
             var pos;
             for (var i = 0; i < halfLevels+1; i++) {
                 pos = this.centre.x - this.sizeButtonLevel*x - 20*(2*x) - this.sizeButtonLevel/2;
-                this.buttonsLevels.push(new MenuButtonLevel(this.levels[i].name, i+1, this.levels[i].miniature, this.canvas, this.context,
+                this.buttonsLevels.push(new MenuButtonLevel(this.levels[i].name, this.levels[i].data, this.levels[i].miniature, this.canvas, this.context,
                                                             pos, this.centre.y-120,
-                                                            this.sizeButtonLevel, this.sizeButtonLevel, true));
+                                                            this.sizeButtonLevel, this.sizeButtonLevel, true, this.game));
                 x = x-1;
             }
             //partie droite
             x = 1;
             for (i; i < nbLevels; i++) {
                 pos = this.centre.x + this.sizeButtonLevel/2 + 20*x*2 + this.sizeButtonLevel*(x-1);
-                this.buttonsLevels.push(new MenuButtonLevel(this.levels[i].name, i+1, this.levels[i].miniature, this.canvas, this.context,
+                this.buttonsLevels.push(new MenuButtonLevel(this.levels[i].name, this.levels[i].data, this.levels[i].miniature, this.canvas, this.context,
                                                             pos, this.centre.y-120,
-                                                            this.sizeButtonLevel, this.sizeButtonLevel, true));
+                                                            this.sizeButtonLevel, this.sizeButtonLevel, true, this.game));
                 x++;
             }
         }

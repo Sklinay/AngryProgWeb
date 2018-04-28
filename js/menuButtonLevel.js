@@ -1,8 +1,7 @@
 class MenuButtonLevel extends MenuButton {
-	constructor(name, numLevel, imagePath, canvas, context,x,y, width, height, clickable){
-		super(name, imagePath, canvas, context,x,y, width, height, clickable);
-		this.numLevel = numLevel;
-		console.log(imagePath);
+	constructor(name, dataPath, imagePath, canvas, context,x,y, width, height, clickable, game){
+		super(name, imagePath, canvas, context,x,y, width, height, clickable, game);
+		this.dataPath = dataPath;
 	}
 	draw(){
 		this.context.fillStyle ='#e7dfc2';
@@ -30,6 +29,9 @@ class MenuButtonLevel extends MenuButton {
 		this.context.fillText(this.name,this.x+this.width/2, this.y + this.height-20);
 	}
 	click(){
-		console.log("Loading level"+this.numLevel);
+		console.log("Loading "+this.name);
+		console.log(this.dataPath);
+		this.game.currentLevel = new Loader(this.game, this.dataPath);
+		this.game.reload();
 	}
 }

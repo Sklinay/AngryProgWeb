@@ -46,7 +46,5 @@ class MenuButton {
 		else if (this.name == "Next level"){
 			console.log("Loading next level...");
 		}
-		// this.game.currentLevel = new Loader(this.game,"level2.json");
-		// this.game.loadLevel();
 	}
 }

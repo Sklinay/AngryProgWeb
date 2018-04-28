@@ -2,19 +2,23 @@
 	"levels": [
 		{
 			"name": "Plaine",
-			"miniature": "ressources/Screens/plaine.png"
+			"miniature": "ressources/Screens/plaine.png",
+			"data": "plaine.json"
 		},
 		{
 			"name": "Desert",
-			"miniature": "ressources/Screens/desert.png"
+			"miniature": "ressources/Screens/desert.png",
+			"data": "desert.json"
 		},
 		{
 			"name": "Glacier",
-			"miniature": "ressources/Screens/glacier.png"
+			"miniature": "ressources/Screens/glacier.png",
+			"data": "glacier.json"
 		},
 		{
 			"name": "Champiland",
-			"miniature": "ressources/Screens/champiland.png"
+			"miniature": "ressources/Screens/champiland.png",
+			"data": "champiland.json"
 		}
 	]
 }

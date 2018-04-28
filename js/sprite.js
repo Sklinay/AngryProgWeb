@@ -21,13 +21,14 @@ class Sprite extends Body {
         this.context.rotate(-this.angle*Math.PI/180);
         this.context.restore();
     }
+    
     drawRecDebug(){
         this.context.fillStyle = '#f00';
         this.context.beginPath();
-        this.context.moveTo(this.getA().x, this.getA().y);
-        this.context.lineTo(this.getB().x, this.getB().y);
-        this.context.lineTo(this.getC().x, this.getC().y);
-        this.context.lineTo(this.getD().x, this.getD().y);
+        this.context.moveTo(this.get_dummy_collision_rect_a().x, this.get_dummy_collision_rect_a().y);
+        this.context.lineTo(this.get_dummy_collision_rect_b().x, this.get_dummy_collision_rect_b().y);
+        this.context.lineTo(this.get_dummy_collision_rect_c().x, this.get_dummy_collision_rect_c().y);
+        this.context.lineTo(this.get_dummy_collision_rect_d().x, this.get_dummy_collision_rect_d().y);
         this.context.closePath();
         this.context.fill();
     }

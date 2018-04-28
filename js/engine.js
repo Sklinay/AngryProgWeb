@@ -31,7 +31,7 @@ class Engine {
         this.explosions = this.explosions.filter(e => e.particles.length > 0);
         this.bodies = this.bodies.filter(function (e) {
             if (e.life <= 0) {
-                _this.explosions.push(new Explosion(_this.context, e.origin, 20));
+                _this.explosions.push(new Explosion(_this.context, e));
                 return false
             } else
                 return true

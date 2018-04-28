@@ -1,13 +1,16 @@
 class Rect {
     constructor(s) {
-        this.origin = new Vector(s.x, s.y);
+        if (s.x === undefined || s.y === undefined)
+            this.origin = new Vector(0, 0);
+        else
+            this.origin = new Vector(s.x, s.y);
         Object.defineProperty(this, "width", {
             writable: false,
-            value: s.width
+            value: (s.width === undefined ? 0 : s.width)
         });
         Object.defineProperty(this, "height", {
             writable: false,
-            value: s.height
+            value: (s.height === undefined ? 0 : s.height)
         });
 
     }
@@ -31,7 +34,7 @@ class Rect {
         return (this.origin.x < 0 && this.origin.x + this.width > 0) &&
             (this.origin.y < 0 && this.origin.y + this.height > 0);
     }
-    
+
     hasThis(x, y) {
         return (this.origin.x < x && this.origin.x + this.width > x) &&
             (this.origin.y < y && this.origin.y + this.height > y);

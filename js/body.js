@@ -2,46 +2,35 @@ class Body extends Rect {
 
     constructor(s) {
         super(s);
-        this.mass = (s.mass==null?Infinity:s.mass) || 0;
+        this.mass = (s.mass === null ? Infinity : s.mass) || 0;
         this.invMass = 1 / this.mass;
         //this._velocity = vel;
-        this.velocity = new Vector(s.velocity.x, s.velocity.y);
-        this.elasticity = s.elasticity;
+        if (s.velocity === undefined)
+            this.velocity = new Vector(0, 0);
+        else
+            this.velocity = new Vector(s.velocity.x, s.velocity.y);
+
+        this.elasticity = (s.elasticity === undefined ? 0 : s.elasticity);
         this.force = Vector.ZERO;
         this.hasCollision = false;
-        this.isStatic = s.isStatic;
+        this.isStatic = (s.isStatic === undefined ? false : s.isStatic);
         this.angle = 0;
-        this.canCollide = (s.canCollide!=null?s.canCollide:true);
+        this.canCollide = (s.canCollide != null ? s.canCollide : true);
+        this.life = (s.life === undefined ? Infinity : s.life);
+        this.damageFactor = (s.damageFactor === undefined ? 0 : s.damageFactor);
+        this.speedFactor = (s.speedFactor === undefined ? 1 : s.speedFactor);
     }
 
     setCollision(b) {
         this.hasCollision = b;
     }
-
-
-    /* Dectection de collision entre l'objet courrant et l'objet b.
-
-       Renvoie null si pas de collision, sinon renvoie les nouveau vecteur vitesses
-       pour l'objet courant et pour b
-    */
-    /*speedPolisher(v) {
-        return new Vector(
-            Math.abs(v.x) > Constants.minimalSpeed ? v.x : 0,
-            Math.abs(v.y) > Constants.minimalSpeed ? v.y : 0,
-        )
+    takeDamage(damage){
+        if(damage > 20){
+            this.life -= damage;
+        }
     }
-
-    get velocity(){
-        return this.speedPolisher(this._velocity);
-    }
-
-    set velocity(v){
-        this._velocity = v;
-    }*/
-
-
     collision(b) {
-        if(!this.canCollide || !b.canCollide) return;
+        if (!this.canCollide || !b.canCollide) return;
         var mdiff = this.mDiff(b);
         if (mdiff.hasOrigin()) { //Vérifie s'il y a collision entre b et this
             var vectors = [new Vector(0, mdiff.origin.y),
@@ -78,7 +67,7 @@ class Body extends Rect {
             // (2) On calcule l'impulsion j :
             var v = this.velocity.sub(b.velocity);
             //var e = Constants.elasticity; // pour les étudiants, juste faire var e = 1;
-            var e = (this.elasticity + b.elasticity)/ 2
+            var e = (this.elasticity + b.elasticity) / 2
             var j = -(1 + e) * v.dot(vecPene) / (this.invMass + b.invMass);
 
             // (3) On calcule les nouvelle vitesse:
@@ -87,7 +76,14 @@ class Body extends Rect {
 
             b.setCollision(true);
             this.setCollision(true);
-
+    
+            if(this.life != Infinity){
+                this.takeDamage(b.velocity.norm() * Constants.baseDamageFactor * b.damageFactor);
+            }
+            if(b.life != Infinity){
+                b.takeDamage(this.velocity.norm() * Constants.baseDamageFactor * this.damageFactor);
+            }
+            
             return {
                 vecPene: vecPeneR,
                 kv: kv,

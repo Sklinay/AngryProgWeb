@@ -48,7 +48,7 @@ class Ammo {
         }
     }
 
-    clearCanvas(dt) {
+    clearCanvas() {
         this.contextAmmo.clearRect(0, 0, this.canvasAmmo.width, this.canvasAmmo.height);
     }
 

@@ -21,8 +21,8 @@ class Loader {
         var engine = this.game.engine;
         var decor = this.game.decor;
         Constants.airfriction = data.levelSettings.airFriction;
-        console.log(Constants.airfriction);
         Constants.gravity = new Vector(data.levelSettings.gravity.x, data.levelSettings.gravity.y);
+        Constants.baseDamageFactor = data.levelSettings.baseDamageFactor;
         engine.aimLine.launcherPos = new Vector(data.levelSettings.launcherPosition.x, data.levelSettings.launcherPosition.y);
         decor.init(data.decorSettings.typeDecor);
 
@@ -39,6 +39,11 @@ class Loader {
         for (var i = 0; i < data.bird.length; i++) {
             var s = data.bird[i];
             this.game.ammo.addAmmo(new Bird(this.game.contextAmmo,s),s.defaultAmmo);
+        }
+        
+        for (var i = 0; i < data.decor.length; i++) {
+            var s = data.decor[i];
+            this.game.decor.addDecor(s);
         }
         this.game.loadGame();
     }

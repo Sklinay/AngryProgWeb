@@ -26,9 +26,24 @@ class Engine {
     update(dt) {
         //Dessin de la ligne de visée
         this.aimLine.draw();
+        //Check life
+        var toRemove = [];
+        for (var i = 0; i < this.bodies.length; i++) {
+            var body = this.bodies[i];
+            if(this.bodies[i].life <= 0){
+                toRemove.push(i);
+            }
+        }
+        for (var i = 0; i < toRemove.length; i++) {
+             this.removeBody(this.bodies[toRemove[i]]);
+         }
         //Pour chaque body
         for (var i = 0; i < this.bodies.length; i++) {
             var body = this.bodies[i];
+            if(body.life <= 0){
+                toRemove.push(i);
+                continue;
+            }
             var bounce = Vector.ZERO;
             //Pour chaque body autre que ceux déjà parcouru dans la première boucle
             for (var j = i + 1; j < this.bodies.length; j++) {
@@ -38,7 +53,6 @@ class Engine {
                     if (!body.isStatic) {
                             body.velocity = result.velocity1;
                             body.move(this.speedPolisher(result.vecPene.mult(result.kv)));
-
                     }
                     if (!oBody.isStatic) {
                             oBody.velocity = result.velocity2;
@@ -78,5 +92,6 @@ class Engine {
             }
 
         }
+
     }
 }

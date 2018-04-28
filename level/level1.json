@@ -9,7 +9,7 @@
             "y": 0.001
         },
         "airFriction": 0.001,
-        "firePower": 10
+       "baseDamageFactor": 120
     },
     "decorSettings": {
         "typeDecor": "Snow"
@@ -23,10 +23,11 @@
             "elasticity": 0.5,
             "description": "Basic bird",
             "damageFactor": 1,
-            "speedFactor": 1,
+            "speedFactor": 1.2,
             "amount": 3,
             "texture": "bird1.png",
-            "defaultAmmo" : true
+            "defaultAmmo": true,
+            "life" : 350
         },
         {
             "name": "bigBird",
@@ -35,10 +36,11 @@
             "mass": 20,
             "elasticity": 0.5,
             "description": "Big bird",
-            "damageFactor": 1,
-            "speedFactor": 1,
+            "damageFactor": 4,
+            "speedFactor": 0.8,
             "amount": 4,
-            "texture": "bird2.png"
+            "texture": "bird2.png",
+            "life" : 350
         }
     ],
     "target": [{
@@ -46,7 +48,7 @@
         "y": 501,
         "width": 80,
         "height": 80,
-        "life": 100,
+        "life": 450,
         "elasticity": 0.5,
         "velocity": {
             "x": 0,
@@ -56,6 +58,14 @@
         "isStatic": false,
         "texture": "ennemy.png",
         "description": "ennemy1"
+    }],
+    "decor": [{
+        "x": 450,
+        "y": 500,
+        "width": 70,
+        "height": 70,
+        "texture": "decor.png",
+        "description": "decoration"
     }],
     "obstacle": [
         {
@@ -159,7 +169,8 @@
                 "x": 0,
                 "y": 0
             },
-            "mass": 10,
+            "mass": 10,                    
+            "life" : 250,
             "isStatic": false,
             "texture": "box.png",
             "description": "Box protège cible"
@@ -174,7 +185,8 @@
                 "x": 0,
                 "y": 0
             },
-            "mass": 10,
+            "mass": 10,            
+            "life" : 250,
             "isStatic": false,
             "texture": "box.png",
             "description": "Box protège cible"
@@ -189,7 +201,8 @@
                 "x": 0,
                 "y": 0
             },
-            "mass": 10,
+            "mass": 10,            
+            "life" : 250,
             "isStatic": false,
             "texture": "box.png",
             "description": "Box protège cible"
@@ -204,7 +217,8 @@
                 "x": 0,
                 "y": 0
             },
-            "mass": 10,
+            "mass": 10,            
+            "life" : 250,
             "isStatic": false,
             "texture": "box.png",
             "description": "Box protège cible"
@@ -219,7 +233,8 @@
                 "x": 0,
                 "y": 0
             },
-            "mass": 10,
+            "mass": 10,            
+            "life" : 250,
             "isStatic": false,
             "texture": "box.png",
             "description": "Box protège cible"
@@ -234,7 +249,8 @@
                 "x": 0,
                 "y": 0
             },
-            "mass": 10,
+            "mass": 10,            
+            "life" : 250,
             "isStatic": false,
             "texture": "box.png",
             "description": "Box protège cible"
@@ -249,7 +265,8 @@
                 "x": 0,
                 "y": 0
             },
-            "mass": 10,
+            "mass": 10,            
+            "life" : 250,
             "isStatic": false,
             "texture": "box.png",
             "description": "Box protège cible"
@@ -264,7 +281,8 @@
                 "x": 0,
                 "y": 0
             },
-            "mass": 10,
+            "mass": 10,            
+            "life" : 250,
             "isStatic": false,
             "texture": "box.png",
             "description": "Box protège cible"
@@ -279,7 +297,8 @@
                 "x": 0,
                 "y": 0
             },
-            "mass": 10,
+            "mass": 10,            
+            "life" : 250,
             "isStatic": false,
             "texture": "box.png",
             "description": "Box protège cible"
@@ -294,7 +313,8 @@
                 "x": 0,
                 "y": 0
             },
-            "mass": 10,
+            "mass": 10,            
+            "life" : 250,
             "isStatic": false,
             "texture": "box.png",
             "description": "Box protège cible"
@@ -309,7 +329,8 @@
                 "x": 0,
                 "y": 0
             },
-            "mass": 10,
+            "mass": 10,            
+            "life" : 250,
             "isStatic": false,
             "texture": "box.png",
             "description": "Box protège cible"
@@ -324,7 +345,8 @@
                 "x": 0,
                 "y": 0
             },
-            "mass": 10,
+            "mass": 10,            
+            "life" : 250,
             "isStatic": false,
             "texture": "box.png",
             "description": "Box protège cible"

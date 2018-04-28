@@ -4,7 +4,8 @@ var Constants = {
     airfriction: 0.001,
     minimalSpeed: 0.05,
     fireScale: 130,
-    minimalSpeed:0.01
+    minimalSpeed:0.01,
+    baseDamageFactor:1
 };
 
 class Game {
@@ -15,10 +16,11 @@ class Game {
         
         this.canvasDecor = canvasDecor;
         this.contextDecor = this.canvasDecor.getContext("2d");
+        
         this.canvasAmmo = canvasAmmo;
         this.contextAmmo = this.canvasAmmo.getContext("2d");
         
-        this.decor = new Decor();
+        this.decor = new Decor(this);
         this.ammo = new Ammo(this);        
         
         this.engine = new Engine(this);
@@ -41,6 +43,7 @@ class Game {
         this.ammo.update();
         this.engine.aimLine.updateLauncher();
         this.initListener();
+        this.decor.update();
     }
     computeCursorPos(x, y) {
         var rect = this.canvas.getBoundingClientRect();

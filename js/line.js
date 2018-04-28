@@ -15,20 +15,9 @@ class Line {
         if(this.bullet != null) this.game.engine.removeBody(this.bullet);        
         if(this.game.ammo.selectedAmmo == null) return;
         
-        var s = {
-            x: this.launcherPos.x-this.game.ammo.selectedAmmo.width/2,
-            y: this.launcherPos.y-this.game.ammo.selectedAmmo.height/2,
-            width: this.game.ammo.selectedAmmo.width,
-            height: this.game.ammo.selectedAmmo.height,
-            mass: Infinity,
-            velocity: 0,
-            elasticity: 0,
-            isStatic: true,
-            texture: this.game.ammo.selectedAmmo.texture,
-            canCollide: false
-        };
+        var bulletData = this.game.ammo.selectedAmmo.generateBullet(this.launcherPos,Vector.ZERO,true);
         
-        this.bullet = new Sprite(this.context, s);
+        this.bullet = new Sprite(this.context, bulletData);
         this.game.engine.addBody(this.bullet);
     }
     
@@ -74,19 +63,10 @@ class Line {
         this.bullet.moveAt(this.launcherPos.x-this.game.ammo.selectedAmmo.width/2,
                            this.launcherPos.y-this.game.ammo.selectedAmmo.height/2);
         if (Math.abs(this.target.x) < 15 && Math.abs(this.target.y) < 15) return;
+        
+        var bulletData = this.game.ammo.selectedAmmo.generateBullet(this.launcherPos.sub(this.target),this.getFireVec());
 
-        var s = {
-            x: this.launcherPos.x - this.target.x-this.game.ammo.selectedAmmo.width/2,
-            y: this.launcherPos.y - this.target.y-this.game.ammo.selectedAmmo.height/2,
-            width: this.game.ammo.selectedAmmo.width,
-            height: this.game.ammo.selectedAmmo.height,
-            mass: this.game.ammo.selectedAmmo.mass,
-            velocity: this.getFireVec(),
-            elasticity: this.game.ammo.selectedAmmo.elasticity,
-            isStatic: false,
-            texture: this.game.ammo.selectedAmmo.texture
-        };
-        var sprite = new Sprite(this.context, s);
+        var sprite = new Sprite(this.context, bulletData);
 
         this.game.engine.addBody(sprite);
         this.game.ammo.decAmount();

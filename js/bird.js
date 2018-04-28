@@ -8,7 +8,6 @@ class Bird extends Sprite {
         this.name = s.name;
         this.amount = s.amount;
         this.speedFactor = s.speedFactor;
-        this.damageFactor = s.damageFactor;
         this.texture = s.texture;
     }
 
@@ -29,7 +28,26 @@ class Bird extends Sprite {
 
         this.context.font = "15px Arial";
         this.context.fillText("x" + this.amount, x + 35, 23);
-        //this.context.fillRect(this.origin.x, this.origin.y, this.width, this.height);
+    }
+    
+    generateBullet(origin,velocity,inert=false){
+       var bullet =  {
+            x: origin.x-this.width/2,
+            y: origin.y-this.height/2,
+            width: this.width,
+            height: this.height,
+            mass: this.mass,
+            velocity: velocity.mult(this.speedFactor),
+            elasticity: this.elasticity,
+            damageFactor: this.damageFactor,
+            speedFactor : this.speedFactor,
+            life : this.life,            
+            isStatic: inert,
+            canCollide: !inert,
+            texture: this.texture
+        };
+        return bullet;
+        
     }
 
 }

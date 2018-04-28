@@ -26,7 +26,7 @@ class Bird extends Sprite {
             this.context.drawImage(this.image, 0, 0, this.image.width, this.image.height, this.origin.x, 0, 30, 30);
         }
 
-        this.context.font = "15px Arial";
+        this.context.font = "15px Grobold";
         this.context.fillText("x" + this.amount, x + 35, 23);
     }
     

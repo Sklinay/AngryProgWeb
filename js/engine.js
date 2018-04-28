@@ -4,6 +4,7 @@ class Engine {
         this.canvas = this.game.canvasJeu;
         this.context = this.game.contextJeu;
         this.bodies = [];
+        this.explosions = [];
         this.aimLine = new Line(this.game, Vector.ZERO, Vector.ZERO);
     }
     addBody(b) {
@@ -24,26 +25,25 @@ class Engine {
         )
     }
     update(dt) {
+        let _this = this;
         //Dessin de la ligne de visée
         this.aimLine.draw();
-        //Check life
-        var toRemove = [];
-        for (var i = 0; i < this.bodies.length; i++) {
-            var body = this.bodies[i];
-            if(this.bodies[i].life <= 0){
-                toRemove.push(i);
-            }
+        this.explosions = this.explosions.filter(e => e.particles.length > 0);
+        this.bodies = this.bodies.filter(function (e) {
+            if (e.life <= 0) {
+                _this.explosions.push(new Explosion(_this.context, e.origin, 20));
+                return false
+            } else
+                return true
+        });
+
+        for (var i = 0; i < this.explosions.length; i++) {
+            this.explosions[i].update();
         }
-        for (var i = 0; i < toRemove.length; i++) {
-             this.removeBody(this.bodies[toRemove[i]]);
-         }
+        
         //Pour chaque body
         for (var i = 0; i < this.bodies.length; i++) {
             var body = this.bodies[i];
-            if(body.life <= 0){
-                toRemove.push(i);
-                continue;
-            }
             var bounce = Vector.ZERO;
             //Pour chaque body autre que ceux déjà parcouru dans la première boucle
             for (var j = i + 1; j < this.bodies.length; j++) {
@@ -51,21 +51,21 @@ class Engine {
                 var result = body.collision(oBody);
                 if (result != null) {
                     if (!body.isStatic) {
-                            body.velocity = result.velocity1;
-                            body.move(this.speedPolisher(result.vecPene.mult(result.kv)));
+                        body.velocity = result.velocity1;
+                        body.move(this.speedPolisher(result.vecPene.mult(result.kv)));
                     }
                     if (!oBody.isStatic) {
-                            oBody.velocity = result.velocity2;
-                            oBody.move(this.speedPolisher(result.vecPene.mult(-result.kvb)));
+                        oBody.velocity = result.velocity2;
+                        oBody.move(this.speedPolisher(result.vecPene.mult(-result.kvb)));
                     }
                 }
             }
 
             if (!body.isStatic) {
                 //Impact de la gravité sur l'objet en fonction de sa masse;
-                
+
                 var forceFrottements = body.velocity.normalize().mult(Constants.airfriction).mult(-1).div(body.mass); //Je remets la multiplication par -1 et la division par la masse en attedant
-                
+
                 var poids = Constants.gravity.mult(body.mass);
 
                 var sommeForces = forceFrottements.add(poids);

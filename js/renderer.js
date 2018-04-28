@@ -12,6 +12,9 @@ class Renderer {
         this.engine.bodies.forEach(function (b) {
             b.draw();
         });
+        this.engine.explosions.forEach(function (b) {
+            b.draw();
+        });
     }
 
     clearCanvas(dt) {

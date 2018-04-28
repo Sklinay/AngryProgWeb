@@ -43,7 +43,7 @@ class Body extends Rect {
         this.damageLevel = Math.min(Math.ceil((this.lifeMax - this.life) / Math.trunc(this.lifeMax / this.textureState)),this.textureState-1);
 
     }
-
+    
     collision(b) {
         if (!this.canCollide || !b.canCollide) return;
         var mdiff = this.mDiff(b);

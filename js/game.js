@@ -4,15 +4,16 @@ var Constants = {
     airfriction: 0.001,
     minimalSpeed: 0.05,
     fireScale: 130,
-    minimalSpeed:0.01,
-    baseDamageFactor:1,
-    ressourcesPath:"ressources/"
+    minimalSpeed: 0.01,
+    baseDamageFactor: 1,
+    ressourcesPath: "ressources/"
 };
 
 class Game {
-    constructor(canvas,canvasDecor,canvasAmmo, canvasMenu) {
+    constructor(canvas, canvasDecor, canvasAmmo, canvasMenu) {
+        this.firstStart = true;
         this.pause = false;
-        this.currentLevel = new Loader(this,"glacier.json");
+        this.currentLevel = new Loader(this, "glacier.json");
         this.canvasJeu = canvas;
         this.contextJeu = this.canvasJeu.getContext("2d");
 
@@ -33,33 +34,38 @@ class Game {
         this.renderer = new Renderer(this.canvasJeu, this.engine)
         this.loadLevel();
     }
-    loadLevel(){
+    loadLevel() {
         this.currentLevel.load();
     }
-    reload(){
+    reload() {
         this.engine.bodies = [];
         this.ammo.birds = [];
         this.decor.decors = [];
         this.loadLevel();
     }
-    loadGame(){
+    loadGame() {
 
         var _this = this;
-        var interval;
-        interval = setInterval(function () {
-            try {
-                if (!_this.pause) {
-                    _this.renderer.update(1000 / 60);
-                }
-            } catch (e) {
-                clearInterval(interval);
-                throw (e);
-            }
-        }, 1000 / 60);
+
         this.ammo.update();
         this.engine.aimLine.updateLauncher();
-        this.initListener();
+
         this.decor.update();
+        if (this.firstStart) {
+            this.firstStart = false;            
+            var interval;
+            interval = setInterval(function () {
+                try {
+                    if (!_this.pause) {
+                        _this.renderer.update(1000 / 144);
+                    }
+                } catch (e) {
+                    clearInterval(interval);
+                    throw (e);
+                }
+            }, 1000 / 144);
+            this.initListener();
+        }
     }
     computeCursorPos(x, y) {
         var rect = this.canvas.getBoundingClientRect();
@@ -89,24 +95,23 @@ class Game {
 
         canvasMenu.addEventListener("click", function (ev) {
             if (_this.menu.shown) {
-                _this.menu.selectingButton(ev.offsetX,ev.offsetY);
+                _this.menu.selectingButton(ev.offsetX, ev.offsetY);
             }
         });
 
         canvasAmmo.addEventListener("click", function (ev) {
-            _this.ammo.selectingAmmo(ev.offsetX,ev.offsetY);
+            _this.ammo.selectingAmmo(ev.offsetX, ev.offsetY);
         });
         //quand on clique sur echap, on affiche ou désaffiche le menu
         window.addEventListener('keyup', (event) => {
-          if (event.key == "Escape") {
-              if (this.menu.shown) {
-                  this.menu.close();
-              }
-              else {
-                  this.menu.open();
-              }
-              this.menu.shown = !this.menu.shown;
-          }
+            if (event.key == "Escape") {
+                if (this.menu.shown) {
+                    this.menu.close();
+                } else {
+                    this.menu.open();
+                }
+                this.menu.shown = !this.menu.shown;
+            }
         });
 
     }

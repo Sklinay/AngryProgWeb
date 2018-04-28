@@ -2,6 +2,7 @@ class MenuButtonLevel extends MenuButton {
 	constructor(name, numLevel, imagePath, canvas, context,x,y, width, height, clickable){
 		super(name, imagePath, canvas, context,x,y, width, height, clickable);
 		this.numLevel = numLevel;
+		console.log(imagePath);
 	}
 	draw(){
 		this.context.fillStyle ='#e7dfc2';

@@ -8,9 +8,6 @@ class Menu {
         this.sizeButton = 100;
         this.centre = new Vector(this.canvas.width/2, this.canvas.height/2);
         this.getInfoLevels();
-        this.initButtons();
-        this.initButtonsLevels();
-        this.textInfo = "Game Paused";
 	}
     //boutons pour relancer et aller au suivant
     initButtons(){
@@ -26,8 +23,6 @@ class Menu {
     }
     //boutons de choix de niveaux
     initButtonsLevels(){
-        console.log("initbuttonslevels");
-        console.log(this.levels);
         var nbLevels = this.levels.length; //pour que ça prenne - de place sur les lignes
         this.buttonsLevels = new Array();
         /*Si le nb de niveaux est pair*/
@@ -35,7 +30,7 @@ class Menu {
             //partie gauche
             var x = nbLevels - 1;
             for (var i = 0; i < nbLevels/2; i++) {
-                this.buttonsLevels.push(new MenuButtonLevel("Level "+(i+1)+"", i+1,"ressources/Screens/level"+(i+1)+".png", this.canvas, this.context,
+                this.buttonsLevels.push(new MenuButtonLevel(this.levels[i].name, i+1, this.levels[i].miniature, this.canvas, this.context,
                                                             this.centre.x-(this.sizeButtonLevel)*((nbLevels/2)-i) - 20*x, this.centre.y-120,
                                                             this.sizeButtonLevel, this.sizeButtonLevel, true));
                 x = x -2;
@@ -43,14 +38,35 @@ class Menu {
             //partie droite
             var y = 0;
             for (i; i < nbLevels; i++) {
-                this.buttonsLevels.push(new MenuButtonLevel("Level "+(i+1)+"", i+1,"ressources/Screens/level"+(i+1)+".png", this.canvas, this.context,
+                this.buttonsLevels.push(new MenuButtonLevel(this.levels[i].name, i+1, this.levels[i].miniature, this.canvas, this.context,
                                                             this.centre.x+20*(y+1)+(this.sizeButtonLevel+20)*y, this.centre.y-120,
                                                             this.sizeButtonLevel, this.sizeButtonLevel, true));
                 y++;
             }
         }
         /*Si le nb de niveaux est impair*/
-
+        else {
+            var halfLevels = Math.trunc(nbLevels/2)
+            //partie gauche
+            var x = halfLevels;
+            var pos;
+            for (var i = 0; i < halfLevels+1; i++) {
+                pos = this.centre.x - this.sizeButtonLevel*x - 20*(2*x) - this.sizeButtonLevel/2;
+                this.buttonsLevels.push(new MenuButtonLevel(this.levels[i].name, i+1, this.levels[i].miniature, this.canvas, this.context,
+                                                            pos, this.centre.y-120,
+                                                            this.sizeButtonLevel, this.sizeButtonLevel, true));
+                x = x-1;
+            }
+            //partie droite
+            x = 1;
+            for (i; i < nbLevels; i++) {
+                pos = this.centre.x + this.sizeButtonLevel/2 + 20*x*2 + this.sizeButtonLevel*(x-1);
+                this.buttonsLevels.push(new MenuButtonLevel(this.levels[i].name, i+1, this.levels[i].miniature, this.canvas, this.context,
+                                                            pos, this.centre.y-120,
+                                                            this.sizeButtonLevel, this.sizeButtonLevel, true));
+                x++;
+            }
+        }
     }
     //récupérer la liste des niveaux et leurs miniatures
     getInfoLevels(){
@@ -58,17 +74,19 @@ class Menu {
         let _this = this;
         xmlhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                var levels = JSON.parse(this.responseText);
-                _this.readData(levels);
+                var world = JSON.parse(this.responseText);
+                _this.readData(world);
             }
         };
         xmlhttp.open("GET", "./level/world.json", true);
         xmlhttp.send();
     }
-    readData(levels){
-        this.levels = levels;
-        console.log("readdata");
-        console.log(this.levels);
+    //lire les infos du json
+    readData(world){
+        this.levels = world.levels;
+        this.initButtons();
+        this.initButtonsLevels();
+        this.textInfo = "Game Paused";
     }
     //ouvre le menu
     open(){

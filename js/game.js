@@ -78,13 +78,14 @@ class Game {
             }
         });
 
-        canvasAmmo.addEventListener("click", function (ev) {
-            if (_this.menu.shown == false) {
-                _this.ammo.selectingAmmo(ev.offsetX,ev.offsetY);
-            }
-            else {
+        canvasMenu.addEventListener("click", function (ev) {
+            if (_this.menu.shown) {
                 _this.menu.selectingButton(ev.offsetX,ev.offsetY);
             }
+        });
+
+        canvasAmmo.addEventListener("click", function (ev) {
+            _this.ammo.selectingAmmo(ev.offsetX,ev.offsetY);
         });
         //quand on clique sur echap, on affiche ou désaffiche le menu
         window.addEventListener('keypress', (event) => {

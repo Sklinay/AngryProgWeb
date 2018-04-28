@@ -7,6 +7,7 @@ class Menu {
         this.sizeButtonLevel = 200;
         this.sizeButton = 100;
         this.centre = new Vector(this.canvas.width/2, this.canvas.height/2);
+        this.getInfoLevels();
         this.initButtons();
         this.initButtonsLevels();
         this.textInfo = "Game Paused";
@@ -25,38 +26,70 @@ class Menu {
     }
     //boutons de choix de niveaux
     initButtonsLevels(){
-        var nbLevels = 4; //a changer, il faudrait detecter le nb de niveaux qu'on a, pour l'instant on peut donner que un nombre pair
+        console.log("initbuttonslevels");
+        console.log(this.levels);
+        var nbLevels = this.levels.length; //pour que ça prenne - de place sur les lignes
         this.buttonsLevels = new Array();
-        //partie gauche
-        var x=nbLevels/2 + 1;
-        for (var i = 0; i < nbLevels/2; i++) {
-            this.buttonsLevels.push(new MenuButtonLevel("Level "+(i+1)+"", "ressources/Screens/level"+(i+1)+".png", this.canvas, this.context,
-                                                        this.centre.x-(this.sizeButtonLevel)*((nbLevels/2)-i) - 20*x, this.centre.y-120,
-                                                        this.sizeButtonLevel, this.sizeButtonLevel, true));
-            x = x -2;
+        /*Si le nb de niveaux est pair*/
+        if (nbLevels%2 == 0) {
+            //partie gauche
+            var x = nbLevels - 1;
+            for (var i = 0; i < nbLevels/2; i++) {
+                this.buttonsLevels.push(new MenuButtonLevel("Level "+(i+1)+"", i+1,"ressources/Screens/level"+(i+1)+".png", this.canvas, this.context,
+                                                            this.centre.x-(this.sizeButtonLevel)*((nbLevels/2)-i) - 20*x, this.centre.y-120,
+                                                            this.sizeButtonLevel, this.sizeButtonLevel, true));
+                x = x -2;
+            }
+            //partie droite
+            var y = 0;
+            for (i; i < nbLevels; i++) {
+                this.buttonsLevels.push(new MenuButtonLevel("Level "+(i+1)+"", i+1,"ressources/Screens/level"+(i+1)+".png", this.canvas, this.context,
+                                                            this.centre.x+20*(y+1)+(this.sizeButtonLevel+20)*y, this.centre.y-120,
+                                                            this.sizeButtonLevel, this.sizeButtonLevel, true));
+                y++;
+            }
         }
-        //partie droite
-        var j = 0;
-        for (i; i < nbLevels; i++) {
-            this.buttonsLevels.push(new MenuButtonLevel("Level "+(i+1)+"", "ressources/Screens/level"+(i+1)+".png", this.canvas, this.context,
-                                                        this.centre.x+20*(j+1)+(this.sizeButtonLevel+20)*j, this.centre.y-120,
-                                                        this.sizeButtonLevel, this.sizeButtonLevel, true));
-            j++;
-        }
+        /*Si le nb de niveaux est impair*/
+
+    }
+    //récupérer la liste des niveaux et leurs miniatures
+    getInfoLevels(){
+        var xmlhttp = new XMLHttpRequest();
+        let _this = this;
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var levels = JSON.parse(this.responseText);
+                _this.readData(levels);
+            }
+        };
+        xmlhttp.open("GET", "./level/world.json", true);
+        xmlhttp.send();
+    }
+    readData(levels){
+        this.levels = levels;
+        console.log("readdata");
+        console.log(this.levels);
     }
     //ouvre le menu
     open(){
         this.game.pause = true;
         this.draw();
     }
+    //ferme le menu
     close(){
         this.game.pause = false;
         this.clearCanvas();
     }
+    //check si on click sur un bouton
     selectingButton(x,y){
         for (var i = 0; i < this.buttons.length; i++) {
             if (this.buttons[i].hasThis(x, y)) {
                 this.buttons[i].click();
+            }
+        }
+        for (var i = 0; i < this.buttonsLevels.length; i++) {
+            if (this.buttonsLevels[i].hasThis(x, y)) {
+                this.buttonsLevels[i].click();
             }
         }
     }

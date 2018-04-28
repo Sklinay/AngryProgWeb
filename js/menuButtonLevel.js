@@ -1,6 +1,7 @@
 class MenuButtonLevel extends MenuButton {
-	constructor(name, imagePath, canvas, context,x,y, width, height, clickable){
+	constructor(name, numLevel, imagePath, canvas, context,x,y, width, height, clickable){
 		super(name, imagePath, canvas, context,x,y, width, height, clickable);
+		this.numLevel = numLevel;
 	}
 	draw(){
 		this.context.fillStyle ='#e7dfc2';
@@ -26,5 +27,8 @@ class MenuButtonLevel extends MenuButton {
 		this.context.fillStyle = "#A06D3D";
 		this.context.textAlign = "center";
 		this.context.fillText(this.name,this.x+this.width/2, this.y + this.height-20);
+	}
+	click(){
+		console.log("Loading level"+this.numLevel);
 	}
 }

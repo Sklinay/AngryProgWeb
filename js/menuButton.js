@@ -40,8 +40,13 @@ class MenuButton {
             (this.y < y && this.y + this.height > y);
     }
 	click(){
-		console.log("clic");
-		this.game.currentLevel = new Loader(this.game,"level2.json");
-		this.game.loadLevel();
+		if (this.name == "Restart level") {
+			console.log("Restarting level...");
+		}
+		else if (this.name == "Next level"){
+			console.log("Loading next level...");
+		}
+		// this.game.currentLevel = new Loader(this.game,"level2.json");
+		// this.game.loadLevel();
 	}
 }

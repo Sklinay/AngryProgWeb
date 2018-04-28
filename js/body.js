@@ -23,28 +23,27 @@ class Body extends Rect {
 
         this.damageFactor = (s.damageFactor === undefined ? 0 : s.damageFactor);
         this.speedFactor = (s.speedFactor === undefined ? 1 : s.speedFactor);
+        this.description = (s.description === undefined ? "Unknow" : s.description);
     }
 
     setCollision(b) {
         this.hasCollision = b;
     }
-    takeDamage(damage){
-        if(damage > 20){
+    takeDamage(damage) {
+        if (damage > 20) {
             this.life -= damage;
             this.updateDamageLevel();
-            //Sprite(this).updateImage();
+            this.updateImage();
         }
     }
     //mise à jour du niveau de détérioration de l'objet : 2=très mauvais état, 1=abimé, 0=neuf
-    updateDamageLevel(){
-        if (this.life > 0) {
-            if (this.life < this.lifeMax/2) {
-                this.damageLevel = 2;
-            }
-            else if (this.life > this.lifeMax/2) {
-                this.damageLevel = 1;
-            }
-        }
+    updateDamageLevel() {
+        if (this.life <= 0) return;
+
+        this.damageLevel = Math.min(Math.ceil((this.lifeMax - this.life) / Math.trunc(this.lifeMax / this.textureState)),this.textureState-1);
+
+        console.log(this.description + " : " + this.damageLevel);
+
     }
 
     collision(b) {
@@ -95,10 +94,10 @@ class Body extends Rect {
             b.setCollision(true);
             this.setCollision(true);
 
-            if(this.life != Infinity){
+            if (this.life != Infinity) {
                 this.takeDamage(b.velocity.norm() * Constants.baseDamageFactor * b.damageFactor);
             }
-            if(b.life != Infinity){
+            if (b.life != Infinity) {
                 b.takeDamage(this.velocity.norm() * Constants.baseDamageFactor * this.damageFactor);
             }
 

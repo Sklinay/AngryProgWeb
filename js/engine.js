@@ -47,7 +47,7 @@ class Engine {
         //Pour chaque body
         for (var i = 0; i < this.bodies.length; i++) {
             var body = this.bodies[i];
-            if(body.type == "target")
+            if(body.type == "target")   
                 noTarget=false;
             var bounce = Vector.ZERO;
             //Pour chaque body autre que ceux déjà parcouru dans la première boucle
@@ -95,7 +95,7 @@ class Engine {
             this.game.menu.open();
         }
         
-        if(this.game.ammo.getRemainingAmmo() == 0 && allAmmoStatic && !this.game.gameOver){
+        if(this.game.ammo.getRemainingAmmo() == 0 && this.explosions.length == 0 && allAmmoStatic && !this.game.gameOver){
             this.game.menu.textInfo = "Vous avez perdu !";
             this.game.gameOver = true;
             this.game.menu.open();

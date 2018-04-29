@@ -1,6 +1,11 @@
 {
 	"levels": [
 		{
+			"name": "Forteresse",
+			"miniature": "ressources/Screens/default.png",
+			"data": "forteress.json"
+		},
+		{
 			"name": "Plaine",
 			"miniature": "ressources/Screens/plaine.png",
 			"data": "plaine.json"

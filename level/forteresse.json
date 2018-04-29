@@ -14,7 +14,7 @@
    "decorSettings":{
       "typeDecor":"Dirt"
    },
-   "bird":[
+   "alien":[
       {
          "name":"basicBird",
          "width":30,

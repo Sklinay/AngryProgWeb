@@ -14,7 +14,7 @@ class Game {
     constructor(canvas, canvasDecor, canvasAmmo, canvasMenu) {
         this.firstStart = true;
         this.gameOver = false;
-        this.currentLevel = new Loader(this, "plaine.json", 0);
+        this.currentLevel = null;
         this.score = 0;
         this.nbWins = 0;
         this.canvasJeu = canvas;
@@ -29,14 +29,12 @@ class Game {
         this.canvasMenu = canvasMenu;
         this.contextMenu = this.canvasMenu.getContext("2d");
 
+        this.engine = new Engine(this);
+        this.renderer = new Renderer(this.canvasJeu, this.engine)
+        
         this.decor = new Decor(this);
         this.ammo = new Ammo(this);
         this.menu = new Menu(this);
-
-        this.engine = new Engine(this);
-        this.renderer = new Renderer(this.canvasJeu, this.engine)
-        this.interval;
-        this.loadLevel();
     }
     //Lance le chargement du niveau actuel depuis son json
     loadLevel() {

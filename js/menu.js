@@ -104,6 +104,8 @@ class Menu {
     //lire les infos du json récupéré et terminer l'initialisation du menu en conséquence
     readData(world){
         this.levels = world.levels;
+        this.game.currentLevel = new Loader(this.game, this.levels[0].data, 0);
+        this.game.loadLevel();
         this.initButtons();
         this.initButtonsLevels();
     }

@@ -15,13 +15,11 @@
 - [X] Blessures
 - [ ] Cibles ou obstacles mobiles (selon trajet prédéfini)
 - [X] Jeu complet
-- [ ] Éléments de reliefs
+- [X] Éléments de reliefs (implémentés via l'elasticité variable des éléments du jeu)
 - [X] Projectiles multiples
 
 ## Note
-- [ ] Refonte du moteur physique en cours.
 - [X] Créer un vrai niveau avec de chouettes textures
 - [X] Jeu complet pour montrer de quoi est capable notre jeu. (Plusieurs niveaux et ptète un système de score (par exemple selon : nombre de "munition restante", ennemies tués, temps..etc))
-- [ ] Peaufiner le code
-- [ ] Commenter le code
+- [X] Commenter le code
 - [ ] Rapport succint

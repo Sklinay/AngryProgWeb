@@ -84,7 +84,7 @@
         "y": 570,
         "width": 30,
         "height": 30,
-        "life": 300,
+        "life": 100,
         "elasticity": 0.5,
         "velocity": {
             "x": 0,

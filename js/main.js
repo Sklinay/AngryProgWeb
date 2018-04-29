@@ -6,4 +6,5 @@ window.addEventListener("load", init);
 
 var unlockAllLevels = function (){
     this.game.nbWins = this.game.menu.levels.length;
+    console.log("Tricheur....");
 }

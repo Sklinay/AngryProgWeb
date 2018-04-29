@@ -24,7 +24,7 @@
             "description": "Basic bird",
             "damageFactor": 1,
             "speedFactor": 1.2,
-            "amount": 3,
+            "amount": 9,
             "texture": "Aliens/Alien1/",
             "textureState": 1,
             "defaultAmmo": true,
@@ -39,7 +39,7 @@
             "description": "Big bird",
             "damageFactor": 4,
             "speedFactor": 0.8,
-            "amount": 4,
+            "amount": 6,
             "texture": "Aliens/Alien2/",
             "textureState": 1,
             "life" : 350
@@ -61,6 +61,40 @@
         "texture": "Ennemies/Square/",
         "textureState": 3,
         "description": "ennemy1"
+    },
+    {
+        "x": 980,
+        "y": 130,
+        "width": 50,
+        "height": 50,
+        "life": 300,
+        "elasticity": 0.5,
+        "velocity": {
+            "x": 0,
+            "y": 0
+        },
+        "mass": 8,
+        "isStatic": false,
+        "texture": "Ennemies/Square/",
+        "textureState": 3,
+        "description": "ennemy2"
+    },
+    {
+        "x": 650,
+        "y": 570,
+        "width": 30,
+        "height": 30,
+        "life": 300,
+        "elasticity": 0.5,
+        "velocity": {
+            "x": 0,
+            "y": 0
+        },
+        "mass": 8,
+        "isStatic": false,
+        "texture": "Ennemies/Square/",
+        "textureState": 3,
+        "description": "ennemy3"
     }],
     "decor": [{
         "x": 450,
@@ -69,7 +103,16 @@
         "height": 70,
         "texture": "Decor/",
         "description": "decoration"
-    }],
+        },
+        {
+        "x": 1000,
+        "y": 400,
+        "width": 70,
+        "height": 70,
+        "texture": "Decor/",
+        "description": "decoration"
+        }
+    ],
     "obstacle": [
         {
             "x": 0,
@@ -158,6 +201,7 @@
                 "y": 0
             },
             "mass": 10,
+            "life" : 250,
             "isStatic": false,
             "texture" : "Blocs/Bois/",
             "textureState": 3,
@@ -248,6 +292,108 @@
             "textureState": 3,
             "description": "Box protège cible"
       },
+      {
+          "x": 980,
+          "y": 340,
+          "width": 30,
+          "height": 30,
+          "elasticity": 0.5,
+          "velocity": {
+              "x": 0,
+              "y": 0
+          },
+          "mass": 10,
+          "life" : 250,
+          "isStatic": false,
+          "texture" : "Blocs/Bois/",
+          "textureState": 3,
+          "description": "Box protège cible"
+    },
+      {
+          "x": 980,
+          "y": 310,
+          "width": 30,
+          "height": 30,
+          "elasticity": 0.5,
+          "velocity": {
+              "x": 0,
+              "y": 0
+          },
+          "mass": 10,
+          "life" : 250,
+          "isStatic": false,
+          "texture" : "Blocs/Bois/",
+          "textureState": 3,
+          "description": "Box protège cible"
+    },
+      {
+          "x": 980,
+          "y": 280,
+          "width": 30,
+          "height": 30,
+          "elasticity": 0.5,
+          "velocity": {
+              "x": 0,
+              "y": 0
+          },
+          "mass": 10,
+          "life" : 250,
+          "isStatic": false,
+          "texture" : "Blocs/Bois/",
+          "textureState": 3,
+          "description": "Box protège cible"
+    },
+      {
+          "x": 980,
+          "y": 250,
+          "width": 30,
+          "height": 30,
+          "elasticity": 0.5,
+          "velocity": {
+              "x": 0,
+              "y": 0
+          },
+          "mass": 10,
+          "life" : 250,
+          "isStatic": false,
+          "texture" : "Blocs/Bois/",
+          "textureState": 3,
+          "description": "Box protège cible"
+    },
+      {
+          "x": 980,
+          "y": 220,
+          "width": 30,
+          "height": 30,
+          "elasticity": 0.5,
+          "velocity": {
+              "x": 0,
+              "y": 0
+          },
+          "mass": 10,
+          "life" : 250,
+          "isStatic": false,
+          "texture" : "Blocs/Bois/",
+          "textureState": 3,
+          "description": "Box protège cible"
+    },
+      {
+          "x": 980,
+          "y": 190,
+          "width": 30,
+          "height": 30,
+          "elasticity": 0.5,
+          "velocity": {
+              "x": 0,
+              "y": 0
+          },
+          "mass": 10,
+          "life" : 250,
+          "isStatic": false,
+          "texture" : "Blocs/Bois/",
+          "textureState": 3,
+          "description": "Box protège cible"
+    },
         {
             "x": 1080,
             "y": 550,
@@ -350,6 +496,125 @@
             "textureState": 3,
             "description": "Box protège cible"
       },
+      {
+          "x": 1020,
+          "y": 340,
+          "width": 30,
+          "height": 30,
+          "elasticity": 0.5,
+          "velocity": {
+              "x": 0,
+              "y": 0
+          },
+          "mass": 10,
+          "life" : 250,
+          "isStatic": false,
+          "texture" : "Blocs/Bois/",
+          "textureState": 3,
+          "description": "Box protège cible"
+    },
+      {
+          "x": 1020,
+          "y": 310,
+          "width": 30,
+          "height": 30,
+          "elasticity": 0.5,
+          "velocity": {
+              "x": 0,
+              "y": 0
+          },
+          "mass": 10,
+          "life" : 250,
+          "isStatic": false,
+          "texture" : "Blocs/Bois/",
+          "textureState": 3,
+          "description": "Box protège cible"
+    },
+      {
+          "x": 1020,
+          "y": 280,
+          "width": 30,
+          "height": 30,
+          "elasticity": 0.5,
+          "velocity": {
+              "x": 0,
+              "y": 0
+          },
+          "mass": 10,
+          "life" : 250,
+          "isStatic": false,
+          "texture" : "Blocs/Bois/",
+          "textureState": 3,
+          "description": "Box protège cible"
+    },
+      {
+          "x": 1020,
+          "y": 250,
+          "width": 30,
+          "height": 30,
+          "elasticity": 0.5,
+          "velocity": {
+              "x": 0,
+              "y": 0
+          },
+          "mass": 10,
+          "life" : 250,
+          "isStatic": false,
+          "texture" : "Blocs/Bois/",
+          "textureState": 3,
+          "description": "Box protège cible"
+    },
+      {
+          "x": 1020,
+          "y": 220,
+          "width": 30,
+          "height": 30,
+          "elasticity": 0.5,
+          "velocity": {
+              "x": 0,
+              "y": 0
+          },
+          "mass": 10,
+          "life" : 250,
+          "isStatic": false,
+          "texture" : "Blocs/Bois/",
+          "textureState": 3,
+          "description": "Box protège cible"
+    },
+      {
+          "x": 1020,
+          "y": 190,
+          "width": 30,
+          "height": 30,
+          "elasticity": 0.5,
+          "velocity": {
+              "x": 0,
+              "y": 0
+          },
+          "mass": 10,
+          "life" : 250,
+          "isStatic": false,
+          "texture" : "Blocs/Bois/",
+          "textureState": 3,
+          "description": "Box protège cible"
+    },
+        {
+        "x": 980,
+        "y": 160,
+        "width": 70,
+        "height": 30,
+        "elasticity": 0.5,
+        "velocity": {
+            "x": 0,
+            "y": 0
+        },
+        "mass": 10,
+        "life" : 250,
+        "isStatic": false,
+        "texture" : "Blocs/Bois/",
+        "textureState": 3,
+        "description": "Box protège cible"
+    },
         {
             "x": 920,
             "y": 370,
@@ -366,5 +631,266 @@
             "texture" : "Blocs/Bois/",
             "textureState": 3,
             "description": "Box protège cible"
-      }]
+      },
+      {
+          "x": 530,
+          "y": 570,
+          "width": 30,
+          "height": 30,
+          "elasticity": 0.5,
+          "velocity": {
+              "x": 0,
+              "y": 0
+          },
+          "mass": 30,
+          "life" : 450,
+          "isStatic": false,
+          "texture" : "Blocs/Pierre/",
+          "textureState": 3,
+          "description": "Box protège cible"
+      },
+      {
+          "x": 530,
+          "y": 540,
+          "width": 30,
+          "height": 30,
+          "elasticity": 0.5,
+          "velocity": {
+              "x": 0,
+              "y": 0
+          },
+          "mass": 30,
+          "life" : 450,
+          "isStatic": false,
+          "texture" : "Blocs/Pierre/",
+          "textureState": 3,
+          "description": "Box protège cible"
+      },
+      {
+          "x": 530,
+          "y": 510,
+          "width": 30,
+          "height": 30,
+          "elasticity": 0.5,
+          "velocity": {
+              "x": 0,
+              "y": 0
+          },
+          "mass": 30,
+          "life" : 450,
+          "isStatic": false,
+          "texture" : "Blocs/Pierre/",
+          "textureState": 3,
+          "description": "Box protège cible"
+      },
+      {
+          "x": 530,
+          "y": 480,
+          "width": 30,
+          "height": 30,
+          "elasticity": 0.5,
+          "velocity": {
+              "x": 0,
+              "y": 0
+          },
+          "mass": 30,
+          "life" : 450,
+          "isStatic": false,
+          "texture" : "Blocs/Pierre/",
+          "textureState": 3,
+          "description": "Box protège cible"
+      },
+      {
+          "x": 530,
+          "y": 450,
+          "width": 30,
+          "height": 30,
+          "elasticity": 0.5,
+          "velocity": {
+              "x": 0,
+              "y": 0
+          },
+          "mass": 30,
+          "life" : 450,
+          "isStatic": false,
+          "texture" : "Blocs/Pierre/",
+          "textureState": 3,
+          "description": "Box protège cible"
+      },
+      {
+          "x": 530,
+          "y": 420,
+          "width": 30,
+          "height": 30,
+          "elasticity": 0.5,
+          "velocity": {
+              "x": 0,
+              "y": 0
+          },
+          "mass": 30,
+          "life" : 450,
+          "isStatic": false,
+          "texture" : "Blocs/Pierre/",
+          "textureState": 3,
+          "description": "Box protège cible"
+      },
+      {
+          "x": 530,
+          "y": 390,
+          "width": 30,
+          "height": 30,
+          "elasticity": 0.5,
+          "velocity": {
+              "x": 0,
+              "y": 0
+          },
+          "mass": 30,
+          "life" : 450,
+          "isStatic": false,
+          "texture" : "Blocs/Pierre/",
+          "textureState": 3,
+          "description": "Box protège cible"
+      },
+
+
+
+      {
+          "x": 700,
+          "y": 570,
+          "width": 30,
+          "height": 30,
+          "elasticity": 0.5,
+          "velocity": {
+              "x": 0,
+              "y": 0
+          },
+          "mass": 30,
+          "life" : 450,
+          "isStatic": false,
+          "texture" : "Blocs/Pierre/",
+          "textureState": 3,
+          "description": "Box protège cible"
+      },
+      {
+          "x": 700,
+          "y": 540,
+          "width": 30,
+          "height": 30,
+          "elasticity": 0.5,
+          "velocity": {
+              "x": 0,
+              "y": 0
+          },
+          "mass": 30,
+          "life" : 450,
+          "isStatic": false,
+          "texture" : "Blocs/Pierre/",
+          "textureState": 3,
+          "description": "Box protège cible"
+      },
+      {
+          "x": 700,
+          "y": 510,
+          "width": 30,
+          "height": 30,
+          "elasticity": 0.5,
+          "velocity": {
+              "x": 0,
+              "y": 0
+          },
+          "mass": 30,
+          "life" : 450,
+          "isStatic": false,
+          "texture" : "Blocs/Pierre/",
+          "textureState": 3,
+          "description": "Box protège cible"
+      },
+      {
+          "x": 700,
+          "y": 480,
+          "width": 30,
+          "height": 30,
+          "elasticity": 0.5,
+          "velocity": {
+              "x": 0,
+              "y": 0
+          },
+          "mass": 30,
+          "life" : 450,
+          "isStatic": false,
+          "texture" : "Blocs/Pierre/",
+          "textureState": 3,
+          "description": "Box protège cible"
+      },
+      {
+          "x": 700,
+          "y": 450,
+          "width": 30,
+          "height": 30,
+          "elasticity": 0.5,
+          "velocity": {
+              "x": 0,
+              "y": 0
+          },
+          "mass": 30,
+          "life" : 450,
+          "isStatic": false,
+          "texture" : "Blocs/Pierre/",
+          "textureState": 3,
+          "description": "Box protège cible"
+      },
+      {
+          "x": 700,
+          "y": 420,
+          "width": 30,
+          "height": 30,
+          "elasticity": 0.5,
+          "velocity": {
+              "x": 0,
+              "y": 0
+          },
+          "mass": 30,
+          "life" : 450,
+          "isStatic": false,
+          "texture" : "Blocs/Pierre/",
+          "textureState": 3,
+          "description": "Box protège cible"
+      },
+      {
+          "x": 700,
+          "y": 390,
+          "width": 30,
+          "height": 30,
+          "elasticity": 0.5,
+          "velocity": {
+              "x": 0,
+              "y": 0
+          },
+          "mass": 30,
+          "life" : 450,
+          "isStatic": false,
+          "texture" : "Blocs/Pierre/",
+          "textureState": 3,
+          "description": "Box protège cible"
+      },
+
+
+      {
+          "x": 530,
+          "y": 360,
+          "width": 170,
+          "height": 30,
+          "elasticity": 0.5,
+          "velocity": {
+              "x": 0,
+              "y": 0
+          },
+          "mass": 60,
+          "life" : 1000,
+          "isStatic": false,
+          "texture" : "Blocs/Pierre/",
+          "textureState": 3,
+          "description": "Toit maison en pierre"
+      }
+    ]
 }

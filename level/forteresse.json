@@ -284,10 +284,10 @@
             "y":0
          },
          "mass":null,
-         "damageFactor":4,
+         "damageFactor":30,
          "isStatic":true,
          "texture":"Blocs/Invincible/",
-         "description":"mur tour haut (empeche de traverser mur)"
+         "description":"mur tour haut"
       },
       {
          "x":1450,

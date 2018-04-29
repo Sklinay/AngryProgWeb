@@ -14,14 +14,14 @@
    "decorSettings":{
       "typeDecor":"Sand"
    },
-   "bird":[
+   "alien":[
       {
-         "name":"basicBird",
+         "name":"basicAlien",
          "width":30,
          "height":30,
          "mass":10,
          "elasticity":0.5,
-         "description":"Basic bird",
+         "description":"Basic alien",
          "damageFactor":1,
          "speedFactor":1.2,
          "amount":9,
@@ -31,12 +31,12 @@
          "life":350
       },
       {
-         "name":"bigBird",
+         "name":"bigAlien",
          "width":50,
          "height":50,
          "mass":20,
          "elasticity":0.5,
-         "description":"Big bird",
+         "description":"Big alien",
          "damageFactor":4,
          "speedFactor":0.8,
          "amount":6,

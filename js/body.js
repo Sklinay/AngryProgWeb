@@ -4,23 +4,16 @@ class Body extends Rect {
         super(s);
         this.mass = (s.mass === null ? Infinity : s.mass) || 0;
         this.invMass = 1 / this.mass;
-        //this._velocity = vel;
-        if (s.velocity === undefined)
-            this.velocity = new Vector(0, 0);
-        else
-            this.velocity = new Vector(s.velocity.x, s.velocity.y);
-
+        this.velocity = s.velocity === undefined?new Vector(0, 0):new Vector(s.velocity.x, s.velocity.y);
         this.elasticity = (s.elasticity === undefined ? 0 : s.elasticity);
         this.force = Vector.ZERO;
         this.hasCollision = false;
         this.isStatic = (s.isStatic === undefined ? false : s.isStatic);
         this.angle = 0;
-        this.canCollide = (s.canCollide != null ? s.canCollide : true);
-
+        this.canCollide = (s.canCollide != null ? s.canCollide : true);    
+        this.damageLevel = 0; 
         this.lifeMax = (s.life === undefined ? Infinity : s.life);
         this.life = this.lifeMax;
-        this.damageLevel = 0; //niveau de détérioration de l'objet
-
         this.damageFactor = (s.damageFactor === undefined ? 0 : s.damageFactor);
         this.speedFactor = (s.speedFactor === undefined ? 1 : s.speedFactor);
         this.description = (s.description === undefined ? "Unknow" : s.description);
@@ -29,6 +22,7 @@ class Body extends Rect {
     setCollision(b) {
         this.hasCollision = b;
     }
+    //Retire les pv du body en fonction des dégats subit
     takeDamage(damage) {
         if (damage > 20) {
             this.life -= damage;
@@ -36,7 +30,7 @@ class Body extends Rect {
             this.updateImage();
         }
     }
-    //mise à jour du niveau de détérioration de l'objet : 2=très mauvais état, 1=abimé, 0=neuf
+    //Mise à  jour du sprite en fonction des dégats subit
     updateDamageLevel() {
         if (this.life <= 0) return;
 
@@ -91,7 +85,8 @@ class Body extends Rect {
 
             b.setCollision(true);
             this.setCollision(true);
-
+            
+            //Calcul des dégats subit par this et b
             if (this.life != Infinity) {
                 this.takeDamage(b.velocity.norm() * Constants.baseDamageFactor * b.damageFactor);
             }

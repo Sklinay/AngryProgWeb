@@ -19,6 +19,7 @@ class Loader {
     }
 
     readData(data) {
+        //Charge toute les informations sur le niveau dans le json
         var engine = this.game.engine;
         var decor = this.game.decor;
         Constants.airfriction = data.levelSettings.airFriction;
@@ -28,21 +29,25 @@ class Loader {
         decor.init(data.decorSettings.typeDecor);
         this.game.nbTarget = data.target.length;
 
+        //Création des obstacles
         for (var i = 0; i < data.obstacle.length; i++) {
             var s = data.obstacle[i];
             this.game.engine.addBody(new Sprite(this.game.contextJeu, s, "obstacle"));
         }
 
+        //Création des cibles
         for (var i = 0; i < data.target.length; i++) {
             var s = data.target[i];
             this.game.engine.addBody(new Sprite(this.game.contextJeu, s, "target"));
         }
 
-        for (var i = 0; i < data.bird.length; i++) {
-            var s = data.bird[i];
-            this.game.ammo.addAmmo(new Bird(this.game.contextAmmo,s),s.defaultAmmo);
+        //Création des munitions d'alien
+        for (var i = 0; i < data.alien.length; i++) {
+            var s = data.alien[i];
+            this.game.ammo.addAmmo(new Alien(this.game.contextAmmo,s),s.defaultAmmo);
         }
 
+        //Création des décors
         for (var i = 0; i < data.decor.length; i++) {
             var s = data.decor[i];
             this.game.decor.addDecor(s);

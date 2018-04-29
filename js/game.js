@@ -13,7 +13,6 @@ var Constants = {
 class Game {
     constructor(canvas, canvasDecor, canvasAmmo, canvasMenu) {
         this.firstStart = true;
-        this.pause = false;
         this.gameOver = false;
         this.currentLevel = new Loader(this, "plaine.json", 0);
         this.score = 0;
@@ -39,20 +38,21 @@ class Game {
         this.interval;
         this.loadLevel();
     }
-
+    //Lance le chargement du niveau actuel depuis son json
     loadLevel() {
         this.currentLevel.load();
     }
-
+    //Déchargement du niveau actuel et chargement du nouveau
     reload() {
         this.engine.bodies = [];
-        this.ammo.birds = [];
+        this.ammo.aliens = [];
         this.decor.decors = [];
         this.loadLevel();
     }
-
+    
+    //Appellé après la fin du chargement d'un niveau via json
+    //Démarre le jeu
     loadGame() {
-
         var _this = this;
 
         this.ammo.update();
@@ -69,41 +69,44 @@ class Game {
         this.gameOver = false;
 
     }
-    computeCursorPos(x, y) {
-        var rect = this.canvas.getBoundingClientRect();
-        return new Vector(x - rect.left, y - rect.top);
-    }
-
+    
+    //Initialise tous les listener du jeu
     initListener() {
         let _this = this;
+        //Clique enfoncé, début du tire
         window.addEventListener("mousedown", function (ev) {
             if (_this.menu.shown == false) {
                 _this.engine.aimLine.beginAim(new Vector(ev.clientX, ev.clientY))
             }
         });
-
+        
+        //Mouvement souris, visée du tire
         window.addEventListener("mousemove", function (ev) {
             if (!_this.engine.aimLine.drawing) return;
             _this.engine.aimLine.aiming(new Vector(ev.clientX, ev.clientY))
 
         });
-
+        
+        //Clique relaché, lancement du tire
         window.addEventListener("mouseup", function (ev) {
             if (_this.menu.shown == false) {
                 _this.engine.aimLine.stopDrawn();
                 _this.engine.aimLine.fire();
             }
         });
-
+        
+        //Clique dans le canvas du menu
         canvasMenu.addEventListener("click", function (ev) {
             if (_this.menu.shown) {
                 _this.menu.selectingButton(ev.offsetX, ev.offsetY);
             }
         });
-
+        
+        //Clique dans le canvas des munitions
         canvasAmmo.addEventListener("click", function (ev) {
             _this.ammo.selectingAmmo(ev.offsetX, ev.offsetY);
         });
+        
         //quand on clique sur echap, on affiche ou désaffiche le menu
         window.addEventListener('keyup', (event) => {
             if (event.key == "Escape" && !this.gameOver) {

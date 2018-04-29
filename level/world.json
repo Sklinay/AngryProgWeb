@@ -3,7 +3,7 @@
 		{
 			"name": "Forteresse",
 			"miniature": "ressources/Screens/default.png",
-			"data": "forteress.json"
+			"data": "forteresse.json"
 		},
 		{
 			"name": "Plaine",

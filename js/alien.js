@@ -1,4 +1,4 @@
-class Bird extends Sprite {
+class Alien extends Sprite {
     constructor(context, s) {
         s.velocity = Vector.ZERO;
         s.isStatic = false;
@@ -10,11 +10,13 @@ class Bird extends Sprite {
         this.speedFactor = s.speedFactor;
         this.texture = s.texture;
     }
-
+    
+    //Retire une munition
     decAmount() {
         this.amount--;
     }
-
+    
+    //Dessine le sprite de l'alien et le nombre de munitions restante dans le this.context (canvas de munition)
     drawAmmo(x) {
         this.origin = new Vector(x, 0);
         if (!this.image.complete) {
@@ -30,6 +32,7 @@ class Bird extends Sprite {
         this.context.fillText("x" + this.amount, x + 35, 23);
     }
     
+    //Génère les donneés d'un nouveau tire de l'alien this
     generateBullet(origin,velocity,inert=false){
        var bullet =  {
             x: origin.x-this.width/2,

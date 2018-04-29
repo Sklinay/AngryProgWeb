@@ -14,14 +14,14 @@
    "decorSettings":{
       "typeDecor":"Grass"
    },
-   "bird":[
+   "alien":[
       {
-         "name":"basicBird",
+         "name":"basicAlien",
          "width":30,
          "height":30,
          "mass":10,
          "elasticity":0.5,
-         "description":"Basic bird",
+         "description":"Basic alien",
          "damageFactor":1,
          "speedFactor":1.2,
          "amount":5,

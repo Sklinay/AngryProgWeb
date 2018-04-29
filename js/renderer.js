@@ -38,6 +38,7 @@ class Renderer {
                 clearInterval(_this);
                 throw (e);
             }
+            //Calcul le nombre de frames affichées pendant les 1000 dernière millième de secondes (FPS counter)
             if (Date.now() - _this.startCounter > 1000) {
                 _this.startCounter = Date.now();
                 _this.fpsContainer.innerHTML = "FPS : " + _this.frameCounter;

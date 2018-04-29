@@ -26,6 +26,7 @@ class Loader {
         Constants.baseDamageFactor = data.levelSettings.baseDamageFactor;
         engine.aimLine.launcherPos = new Vector(data.levelSettings.launcherPosition.x, data.levelSettings.launcherPosition.y);
         decor.init(data.decorSettings.typeDecor);
+        this.game.nbTarget = data.target.length;
 
         for (var i = 0; i < data.obstacle.length; i++) {
             var s = data.obstacle[i];

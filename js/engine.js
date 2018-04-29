@@ -6,6 +6,7 @@ class Engine {
         this.bodies = [];
         this.explosions = [];
         this.aimLine = new Line(this.game, Vector.ZERO, Vector.ZERO);
+        
     }
     addBody(b) {
         this.bodies.push(b);
@@ -30,7 +31,8 @@ class Engine {
         this.aimLine.draw();
         this.explosions = this.explosions.filter(e => e.particles.length > 0);
         this.bodies = this.bodies.filter(function (e) {
-            if (e.life <= 0) {
+            if (e.life <= 0) {              
+                if(e.type=="target")  _this.game.score += e.lifeMax;
                 _this.explosions.push(new Explosion(_this.context, e));
                 return false
             } else
@@ -86,8 +88,9 @@ class Engine {
         
         if(noTarget && this.explosions.length == 0 && !this.game.gameOver){
             if(this.game.currentLevel.levelNum >= this.game.nbWins)              
-                this.game.nbWins++;                
-            this.game.menu.textInfo = "Bravo !";
+                this.game.nbWins++;
+            var finalScore = this.game.ammo.getRemainingAmmo()*1000 + this.game.score;
+            this.game.menu.textInfo = "Bravo ! Vous avez un score de " + finalScore;
             this.game.gameOver = true;
             this.game.menu.open();
         }

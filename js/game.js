@@ -16,6 +16,7 @@ class Game {
         this.gameOver = false;
         this.currentLevel = new Loader(this, "plaine.json", 0);
         this.nbWins = 0;
+        this.score = 0;
         this.canvasJeu = canvas;
         this.contextJeu = this.canvasJeu.getContext("2d");
 
@@ -37,15 +38,18 @@ class Game {
         this.interval;
         this.loadLevel();
     }
+    
     loadLevel() {
         this.currentLevel.load();
     }
+    
     reload() {
         this.engine.bodies = [];
         this.ammo.birds = [];
         this.decor.decors = [];
         this.loadLevel();
     }
+    
     loadGame() {
 
         var _this = this;
@@ -60,6 +64,7 @@ class Game {
             this.firstStart = false;
             this.initListener();
         }
+        this.score = 0;
         this.gameOver = false;
 
     }

@@ -22,4 +22,4 @@
 - [X] Créer un vrai niveau avec de chouettes textures
 - [X] Jeu complet pour montrer de quoi est capable notre jeu. (Plusieurs niveaux et ptète un système de score (par exemple selon : nombre de "munition restante", ennemies tués, temps..etc))
 - [X] Commenter le code
-- [ ] Rapport succint
+- [x] Rapport succint

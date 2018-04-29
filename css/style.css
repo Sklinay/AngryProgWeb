@@ -11,6 +11,11 @@ body{
     margin: 0px;
     width: 100%;    
 }
+#fps{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
 .container{
     width: 100%;
 }

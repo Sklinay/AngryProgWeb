@@ -1,4 +1,5 @@
 var Constants = {
+    fps:60,
     gravity: new Vector(0, 0.001),
     elasticity: 0.5,
     airfriction: 0.001,

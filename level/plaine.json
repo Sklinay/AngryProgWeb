@@ -24,24 +24,10 @@
             "description": "Basic bird",
             "damageFactor": 1,
             "speedFactor": 1.2,
-            "amount": 3,
+            "amount": 5,
             "texture": "Aliens/Alien1/",
             "textureState": 1,
             "defaultAmmo": true,
-            "life" : 350
-        },
-        {
-            "name": "bigBird",
-            "width": 50,
-            "height": 50,
-            "mass": 20,
-            "elasticity": 0.5,
-            "description": "Big bird",
-            "damageFactor": 4,
-            "speedFactor": 0.8,
-            "amount": 4,
-            "texture": "Aliens/Alien2/",
-            "textureState": 1,
             "life" : 350
         }
     ],
@@ -131,21 +117,6 @@
             "isStatic": true,
             "texture" : "Blocs/Invincible/",
             "description": "Mur de droite"
-      },
-        {
-            "x": 500,
-            "y": 280,
-            "width": 45,
-            "height": 300,
-            "elasticity": 0.5,
-            "velocity": {
-                "x": 0,
-                "y": 0
-            },
-            "mass": null,
-            "isStatic": true,
-            "texture" : "Blocs/Invincible/",
-            "description": "Mur obstacle"
       },
         {
             "x": 920,

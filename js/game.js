@@ -16,7 +16,7 @@ class Game {
         this.gameOver = false;
         this.currentLevel = new Loader(this, "plaine.json", 0);
         this.score = 0;
-        this.nbWins = 4;
+        this.nbWins = 0;
         this.canvasJeu = canvas;
         this.contextJeu = this.canvasJeu.getContext("2d");
 

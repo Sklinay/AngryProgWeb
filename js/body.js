@@ -91,12 +91,12 @@ class Body extends Rect {
             //Calcul des dégats subit par this et b
             if (this.life != Infinity) {
                 this.takeDamage((b.velocity.norm() * Constants.baseDamageFactor * b.damageFactor));
-                //Dégat auto infligé en fonction du damageFactor de l'autre bodi divisé par 10
+                //Dégats auto infligés en fonction du damageFactor de l'autre bodi divisé par 10
                 this.takeDamage(this.velocity.norm() * Constants.baseDamageFactor * this.damageFactor*0.10);
             }
             if (b.life != Infinity) {
                 b.takeDamage(this.velocity.norm() * Constants.baseDamageFactor * this.damageFactor);
-                //Dégat auto infligé en fonction du damageFactor de l'autre bodi divisé par 10
+                //Dégats auto infligés en fonction du damageFactor de l'autre bodi divisé par 10
                 b.takeDamage(b.velocity.norm() * Constants.baseDamageFactor * this.damageFactor*0.10);
             }
 

@@ -14,7 +14,7 @@
    "decorSettings":{
       "typeDecor":"Dirt"
    },
-   "bird":[
+   "alien":[
       {
          "name":"basicBird",
          "width":30,
@@ -263,27 +263,27 @@
          "y":520,
          "width":270,
          "height":60,
-         "elasticity":50,
+         "elasticity":2,
          "velocity":{
             "x":0,
             "y":0
          },
-         "mass":3,
+         "mass":null,
          "isStatic":true,
          "texture":"Blocs/Rebond/",
-         "description":"verre"
+         "description":"platforme rebondissante"
       },
       {
          "x":600,
          "y":0,
          "width":270,
          "height":60,
-         "elasticity":50,
+         "elasticity":0.0,
          "velocity":{
             "x":0,
             "y":0
          },
-         "mass":3,
+         "mass":null,
          "damageFactor":4,
          "isStatic":true,
          "texture":"Blocs/Invincible/",

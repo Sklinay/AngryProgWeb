@@ -1,5 +1,5 @@
+//classe d'affichage des body (murs, projectiles, ennemis)
 class Sprite extends Body {
-
     constructor(context, s, type) {
         super(s);
         this.context = context;
@@ -8,14 +8,14 @@ class Sprite extends Body {
         this.textureState = (s.textureState === undefined ? 1 : s.textureState);
         this.updateImage(s.texture);
     }
-
+    //appelé quand un body subit des dégats, pour mettre à jour son état afin de rendre visible la détérioration
     updateImage(texture) {
         //si il s'agit d'un obstacle on check le matériau
         this.imagePath = Constants.ressourcesPath + this.texture + "state" + (this.damageLevel) + ".png";
         this.image = new Image();
         this.image.src = this.imagePath;
     }
-
+    //dessine l'entité
     draw() {
         if (!this.image.complete) {
             let _this = this;

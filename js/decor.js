@@ -1,3 +1,4 @@
+//classe pour la gestion du decor de fond de niveau
 class Decor {
     constructor(game) {
         this.type = "Grass"; //type par défaut
@@ -6,18 +7,18 @@ class Decor {
         this.contextDecor = this.game.contextDecor;
         this.decors = [];
     }
-
+    //définit le type de décor (parmi grass, sand, dirt et snow)
     init(type) {
         this.type = type;
         this.background = new Image();
         this.background.src = "ressources/" + this.type + "/" + "background.png";
     }
-
+    //ajoute un objet de décor (touffe d'herbe ou autre)
     addDecor(dataS) {
         dataS.texture = this.type + "/" + dataS.texture;
         this.decors.push(new Sprite(this.game.contextDecor, dataS));
     }
-
+    //dessine le décor
     draw() {
         var ptrn = this.contextDecor.createPattern(this.background, 'repeat'); // Create a pattern with this image, and set it to "repeat".
         this.contextDecor.fillStyle = ptrn;
@@ -26,6 +27,7 @@ class Decor {
             e.draw();
         });
     }
+    //met à jour l'affichage
     update() {
         this.clearCanvas();
         let _this = this;
@@ -38,7 +40,7 @@ class Decor {
         }
 
     }
-
+    //efface le canvas
     clearCanvas() {
         this.contextDecor.clearRect(0, 0, this.canvasDecor.width, this.canvasDecor.height);
     }

@@ -1,9 +1,11 @@
+//Classe des boutons de niveaux (bouton pour le niveau Plaine etc...)
 class MenuButtonLevel extends MenuButton {
 	constructor(name, dataPath, numLevel, imagePath, canvas, context,x,y, width, height, clickable, game){
 		super(name, imagePath, canvas, context,x,y, width, height, clickable, game);
 		this.dataPath = dataPath;
 		this.numLevel = numLevel;
 	}
+	//dessine le bouton
 	draw(){
 		this.context.fillStyle ='#e7dfc2';
 		this.context.fillRect(this.x, this.y, this.width, this.height);
@@ -17,6 +19,7 @@ class MenuButtonLevel extends MenuButton {
 			this.context.fillRect(this.x, this.y, this.width, this.height);
 		}
 	}
+	//dessine l'aperçu du niveau dans le bouton
 	drawImage(){
 		if(!this.image.complete){
 			let _this = this;
@@ -27,16 +30,18 @@ class MenuButtonLevel extends MenuButton {
 			 this.context.drawImage(this.image,0,this.image.height/3,this.image.width, 2*(this.image.height/3), this.x+20, this.y+20, this.width - 40, 2*(this.height/3) - 5);
 		}
 	}
+	//dessine le nom du niveau
 	drawText(){
 		this.context.font = "bold 30px Arial";
 		this.context.fillStyle = "#A06D3D";
 		this.context.textAlign = "center";
 		this.context.fillText(this.name,this.x+this.width/2, this.y + this.height-20);
 	}
+	//appelé au click sur le bouton de niveau
 	click(){
 		console.log("Loading "+this.name);
 		this.game.currentLevel = new Loader(this.game, this.dataPath, this.numLevel);
-		this.game.reload();        
+		this.game.reload();
         this.game.menu.close();
         this.game.menu.initButtons();
 	}

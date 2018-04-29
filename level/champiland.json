@@ -1,454 +1,461 @@
 {
-    "levelSettings": {
-        "launcherPosition": {
-            "x": 800,
-            "y": 300
-        },
-        "gravity": {
-            "x": 0,
-            "y": 0.001
-        },
-        "airFriction": 0.001,
-       "baseDamageFactor": 120
-    },
-    "decorSettings": {
-        "typeDecor": "Dirt"
-    },
-    "bird": [
-        {
-            "name": "basicBird",
-            "width": 30,
-            "height": 30,
-            "mass": 10,
-            "elasticity": 0.5,
-            "description": "Basic bird",
-            "damageFactor": 1,
-            "speedFactor": 1.2,
-            "amount": 3,
-            "texture": "Aliens/Alien1/",
-            "textureState": 1,
-            "defaultAmmo": true,
-            "life" : 350
-        },
-        {
-            "name": "bigBird",
-            "width": 50,
-            "height": 50,
-            "mass": 20,
-            "elasticity": 0.5,
-            "description": "Big bird",
-            "damageFactor": 4,
-            "speedFactor": 0.8,
-            "amount": 4,
-            "texture": "Aliens/Alien2/",
-            "textureState": 1,
-            "life" : 350
-        }
-    ],
-    "target": [{
-        "x": 30,
-        "y": 200,
-        "width": 80,
-        "height": 80,
-        "life": 450,
-        "elasticity": 0.5,
-        "velocity": {
-            "x": 0,
-            "y": 0
-        },
-        "mass": 10,
-        "isStatic": false,
-        "texture": "Ennemies/Pload/",
-        "textureState": 3,
-        "description": "ennemy1"
-        },
-        {
-        "x": 1300,
-        "y": 500,
-        "width": 80,
-        "height": 80,
-        "life": 1,
-        "elasticity": 0.5,
-        "velocity": {
-            "x": 0,
-            "y": 0
-        },
-        "mass": 10,
-        "isStatic": false,
-        "texture": "Ennemies/Square/",
-        "textureState": 3,
-        "description": "ennemy2"
-        },
-        {
-        "x": 1300,
-        "y": 40,
-        "width": 80,
-        "height": 80,
-        "life": 1,
-        "elasticity": 0.5,
-        "velocity": {
-            "x": 0,
-            "y": 0
-        },
-        "mass": 10,
-        "isStatic": false,
-        "texture": "Ennemies/Square/",
-        "textureState": 3,
-        "description": "ennemy3"
-        }],
-    "decor": [{
-        "x": 450,
-        "y": 500,
-        "width": 70,
-        "height": 70,
-        "texture": "Decor/",
-        "description": "decoration"
-    }],
-    "obstacle": [
-        {
-            "x": 0,
-            "y": 0,
-            "width": 1500,
-            "height": 20,
-            "elasticity": 0.5,
-            "velocity": {
-                "x": 0,
-                "y": 0
-            },
-            "mass": null,
-            "isStatic": true,
-            "texture" : "Blocs/Invincible/",
-            "description": "Mur du haut"
+   "levelSettings":{
+      "launcherPosition":{
+         "x":800,
+         "y":300
       },
-        {
-            "x": 0,
-            "y": 580,
-            "width": 1500,
-            "height": 20,
-            "elasticity": 0.5,
-            "velocity": {
-                "x": 0,
-                "y": 0
-            },
-            "mass": null,
-            "isStatic": true,
-            "texture" : "Blocs/Invincible/",
-            "description": "Mur du bas"
-
+      "gravity":{
+         "x":0,
+         "y":0.001
       },
-        {
-            "x": 0,
-            "y": 20,
-            "width": 20,
-            "height": 560,
-            "elasticity": 0.5,
-            "velocity": {
-                "x": 0,
-                "y": 0
-            },
-            "mass": null,
-            "isStatic": true,
-            "texture" : "Blocs/Invincible/",
-            "description": "Mur de gauche"
+      "airFriction":0.001,
+      "baseDamageFactor":120
+   },
+   "decorSettings":{
+      "typeDecor":"Dirt"
+   },
+   "bird":[
+      {
+         "name":"basicBird",
+         "width":30,
+         "height":30,
+         "mass":10,
+         "elasticity":0.5,
+         "description":"Basic bird",
+         "damageFactor":1,
+         "speedFactor":1.2,
+         "amount":3,
+         "texture":"Aliens/Alien1/",
+         "textureState":1,
+         "defaultAmmo":true,
+         "life":350
       },
-        {
-            "x": 1480,
-            "y": 20,
-            "width": 20,
-            "height": 560,
-            "elasticity": 0.5,
-            "velocity": {
-                "x": 0,
-                "y": 0
-            },
-            "mass": null,
-            "isStatic": true,
-            "texture" : "Blocs/Invincible/",
-            "description": "Mur de droite"
+      {
+         "name":"bigBird",
+         "width":50,
+         "height":50,
+         "mass":20,
+         "elasticity":0.5,
+         "description":"Big bird",
+         "damageFactor":4,
+         "speedFactor":0.8,
+         "amount":4,
+         "texture":"Aliens/Alien2/",
+         "textureState":1,
+         "life":350
+      }
+   ],
+   "target":[
+      {
+         "x":30,
+         "y":200,
+         "width":80,
+         "height":80,
+         "life":450,
+         "elasticity":0.5,
+         "velocity":{
+            "x":0,
+            "y":0
+         },
+         "mass":10,
+         "isStatic":false,
+         "texture":"Ennemies/Pload/",
+         "textureState":3,
+         "description":"ennemy1"
       },
-        {
-            "x": 20,
-            "y": 280,
-            "width": 150,
-            "height": 30,
-            "elasticity": 0.5,
-            "velocity": {
-                "x": 0,
-                "y": 0
-            },
-            "mass": null,
-            "isStatic": true,
-            "texture" : "Blocs/Invincible/",
-            "description": "plateforme gauche"
-        },{
-            "x": 170,
-            "y": 100,
-            "width": 300,
-            "height": 30,
-            "elasticity": 0.5,
-            "velocity": {
-              "x": 0,
-              "y": 0
-            },
-            "mass": null,
-            "isStatic": true,
-            "texture" : "Blocs/Invincible/",
-            "description": "couloir haut"
-        },{
-            "x": 440,
-            "y": 20,
-            "width": 30,
-            "height": 80,
-            "elasticity": 0.5,
-            "velocity": {
-              "x": 0,
-              "y": 0
-            },
-            "mass": 3,
-            "life" : 10,
-            "isStatic": false,
-            "texture" : "Blocs/Glace/",
-            "description": "entree couloir haut"
-        },{
-            "x": 300,
-            "y": 510,
-            "width": 900,
-            "height": 30,
-            "elasticity": 0.5,
-            "velocity": {
-              "x": 0,
-              "y": 0
-            },
-            "mass": null,
-            "isStatic": true,
-            "texture" : "Blocs/Invincible/",
-            "description": "couloir bas"
-        },{
-            "x": 1240,
-            "y": 280,
-            "width": 20,
-            "height": 300,
-            "elasticity": 0.5,
-            "velocity": {
-              "x": 0,
-              "y": 0
-            },
-            "mass": 3,
-            "life": 10,
-            "isStatic": false,
-            "texture" : "Blocs/Glace/",
-            "description": "glace droite"
-        },{
-            "x": 1200,
-            "y": 240,
-            "width": 20,
-            "height": 300,
-            "elasticity": 0.5,
-            "velocity": {
-              "x": 0,
-              "y": 0
-            },
-            "mass": null,
-            "isStatic": true,
-            "texture" : "Blocs/Invincible/",
-            "description": "protege glace droite"
-        },{
-            "x": 1220,
-            "y": 240,
-            "width": 260,
-            "height": 40,
-            "elasticity": 0.5,
-            "velocity": {
-              "x": 0,
-              "y": 0
-            },
-            "mass": 500,
-            "life": 3000000,
-            "isStatic": false,
-            "texture" : "Blocs/Pierre/",
-            "description": "boum"
-        },{
-            "x": 1220,
-            "y": 199,
-            "width": 260,
-            "height": 40,
-            "elasticity": 0.5,
-            "velocity": {
-              "x": 0,
-              "y": 0
-            },
-            "mass": null,
-            "isStatic": true,
-            "texture" : "Blocs/Invincible/",
-            "description": "protege boom"
-        },
-
-
-
-        {
-            "x": 1220,
-            "y": 169,
-            "width": 30,
-            "height": 30,
-            "elasticity": 0.5,
-            "velocity": {
-              "x": 0,
-              "y": 0
-            },
-            "mass": 100,
-            "life": 300,
-            "isStatic": false,
-            "texture" : "Blocs/Pierre/",
-            "description": "bloc chato"
-        },{
-            "x": 1220,
-            "y": 139,
-            "width": 30,
-            "height": 30,
-            "elasticity": 0.5,
-            "velocity": {
-              "x": 0,
-              "y": 0
-            },
-            "mass": 100,
-            "life": 300,
-            "isStatic": false,
-            "texture" : "Blocs/Pierre/",
-            "description": "bloc chato"
-        },{
-            "x": 1220,
-            "y": 109,
-            "width": 30,
-            "height": 30,
-            "elasticity": 0.5,
-            "velocity": {
-              "x": 0,
-              "y": 0
-            },
-            "mass": 100,
-            "life": 300,
-            "isStatic": false,
-            "texture" : "Blocs/Pierre/",
-            "description": "bloc chato"
-        },{
-            "x": 1220,
-            "y": 79,
-            "width": 30,
-            "height": 30,
-            "elasticity": 0.5,
-            "velocity": {
-              "x": 0,
-              "y": 0
-            },
-            "mass": 100,
-            "life": 300,
-            "isStatic": false,
-            "texture" : "Blocs/Pierre/",
-            "description": "bloc chato"
-        },{
-            "x": 1220,
-            "y": 49,
-            "width": 30,
-            "height": 30,
-            "elasticity": 0.5,
-            "velocity": {
-              "x": 0,
-              "y": 0
-            },
-            "mass": 100,
-            "life": 300,
-            "isStatic": false,
-            "texture" : "Blocs/Pierre/",
-            "description": "bloc chato"
-        },
-
-
-
-
-
-        {
-            "x": 140,
-            "y": 250,
-            "width": 30,
-            "height": 30,
-            "elasticity": 0.5,
-            "velocity": {
-                "x": 0,
-                "y": 0
-            },
-            "mass": 30,
-            "life" : 450,
-            "isStatic": false,
-            "texture" : "Blocs/Pierre/",
-            "textureState": 3,
-            "description": "Box protège cible"
-        },
-        {
-            "x": 140,
-            "y": 220,
-            "width": 30,
-            "height": 30,
-            "elasticity": 0.5,
-            "velocity": {
-                "x": 0,
-                "y": 0
-            },
-            "mass": 30,
-            "life" : 450,
-            "isStatic": false,
-            "texture" : "Blocs/Pierre/",
-            "textureState": 3,
-            "description": "Box protège cible"
-        },
-        {
-            "x": 140,
-            "y": 190,
-            "width": 30,
-            "height": 30,
-            "elasticity": 0.5,
-            "velocity": {
-                "x": 0,
-                "y": 0
-            },
-            "mass": 30,
-            "life" : 450,
-            "isStatic": false,
-            "texture" : "Blocs/Pierre/",
-            "textureState": 3,
-            "description": "Box protège cible"
-        },
-        {
-            "x": 140,
-            "y": 160,
-            "width": 30,
-            "height": 30,
-            "elasticity": 0.5,
-            "velocity": {
-                "x": 0,
-                "y": 0
-            },
-            "mass": 30,
-            "life" : 450,
-            "isStatic": false,
-            "texture" : "Blocs/Pierre/",
-            "textureState": 3,
-            "description": "Box protège cible"
-        },
-        {
-            "x": 140,
-            "y": 130,
-            "width": 30,
-            "height": 30,
-            "elasticity": 0.5,
-            "velocity": {
-                "x": 0,
-                "y": 0
-            },
-            "mass": 30,
-            "life" : 450,
-            "isStatic": false,
-            "texture" : "Blocs/Pierre/",
-            "textureState": 3,
-            "description": "Box protège cible"
-        }]
+      {
+         "x":1300,
+         "y":500,
+         "width":80,
+         "height":80,
+         "life":1,
+         "elasticity":0.5,
+         "velocity":{
+            "x":0,
+            "y":0
+         },
+         "mass":10,
+         "isStatic":false,
+         "texture":"Ennemies/Square/",
+         "textureState":3,
+         "description":"ennemy2"
+      },
+      {
+         "x":1300,
+         "y":40,
+         "width":80,
+         "height":80,
+         "life":1,
+         "elasticity":0.5,
+         "velocity":{
+            "x":0,
+            "y":0
+         },
+         "mass":10,
+         "isStatic":false,
+         "texture":"Ennemies/Square/",
+         "textureState":3,
+         "description":"ennemy3"
+      }
+   ],
+   "decor":[
+      {
+         "x":450,
+         "y":500,
+         "width":70,
+         "height":70,
+         "texture":"Decor/",
+         "description":"decoration"
+      }
+   ],
+   "obstacle":[
+      {
+         "x":0,
+         "y":0,
+         "width":1500,
+         "height":20,
+         "elasticity":0.5,
+         "velocity":{
+            "x":0,
+            "y":0
+         },
+         "mass":null,
+         "isStatic":true,
+         "texture":"Blocs/Invincible/",
+         "description":"Mur du haut"
+      },
+      {
+         "x":0,
+         "y":580,
+         "width":1500,
+         "height":20,
+         "elasticity":0.5,
+         "velocity":{
+            "x":0,
+            "y":0
+         },
+         "mass":null,
+         "isStatic":true,
+         "texture":"Blocs/Invincible/",
+         "description":"Mur du bas"
+      },
+      {
+         "x":0,
+         "y":20,
+         "width":20,
+         "height":560,
+         "elasticity":0.5,
+         "velocity":{
+            "x":0,
+            "y":0
+         },
+         "mass":null,
+         "isStatic":true,
+         "texture":"Blocs/Invincible/",
+         "description":"Mur de gauche"
+      },
+      {
+         "x":1480,
+         "y":20,
+         "width":20,
+         "height":560,
+         "elasticity":0.5,
+         "velocity":{
+            "x":0,
+            "y":0
+         },
+         "mass":null,
+         "isStatic":true,
+         "texture":"Blocs/Invincible/",
+         "description":"Mur de droite"
+      },
+      {
+         "x":20,
+         "y":280,
+         "width":150,
+         "height":30,
+         "elasticity":0.5,
+         "velocity":{
+            "x":0,
+            "y":0
+         },
+         "mass":null,
+         "isStatic":true,
+         "texture":"Blocs/Invincible/",
+         "description":"plateforme gauche"
+      },
+      {
+         "x":170,
+         "y":100,
+         "width":300,
+         "height":30,
+         "elasticity":0.5,
+         "velocity":{
+            "x":0,
+            "y":0
+         },
+         "mass":null,
+         "isStatic":true,
+         "texture":"Blocs/Invincible/",
+         "description":"couloir haut"
+      },
+      {
+         "x":440,
+         "y":20,
+         "width":30,
+         "height":80,
+         "elasticity":0.5,
+         "velocity":{
+            "x":0,
+            "y":0
+         },
+         "mass":3,
+         "life":10,
+         "isStatic":false,
+         "texture":"Blocs/Glace/",
+         "description":"entree couloir haut"
+      },
+      {
+         "x":300,
+         "y":510,
+         "width":900,
+         "height":30,
+         "elasticity":0.5,
+         "velocity":{
+            "x":0,
+            "y":0
+         },
+         "mass":null,
+         "isStatic":true,
+         "texture":"Blocs/Invincible/",
+         "description":"couloir bas"
+      },
+      {
+         "x":1240,
+         "y":280,
+         "width":20,
+         "height":300,
+         "elasticity":0.5,
+         "velocity":{
+            "x":0,
+            "y":0
+         },
+         "mass":3,
+         "life":10,
+         "isStatic":false,
+         "texture":"Blocs/Glace/",
+         "description":"glace droite"
+      },
+      {
+         "x":1200,
+         "y":240,
+         "width":20,
+         "height":300,
+         "elasticity":0.5,
+         "velocity":{
+            "x":0,
+            "y":0
+         },
+         "mass":null,
+         "isStatic":true,
+         "texture":"Blocs/Invincible/",
+         "description":"protege glace droite"
+      },
+      {
+         "x":1220,
+         "y":240,
+         "width":260,
+         "height":40,
+         "elasticity":0.5,
+         "velocity":{
+            "x":0,
+            "y":0
+         },
+         "mass":500,
+         "life":3000000,
+         "isStatic":false,
+         "texture":"Blocs/Pierre/",
+         "description":"boum"
+      },
+      {
+         "x":1220,
+         "y":199,
+         "width":260,
+         "height":40,
+         "elasticity":0.5,
+         "velocity":{
+            "x":0,
+            "y":0
+         },
+         "mass":null,
+         "isStatic":true,
+         "texture":"Blocs/Invincible/",
+         "description":"protege boom"
+      },
+      {
+         "x":1220,
+         "y":169,
+         "width":30,
+         "height":30,
+         "elasticity":0.5,
+         "velocity":{
+            "x":0,
+            "y":0
+         },
+         "mass":100,
+         "life":300,
+         "isStatic":false,
+         "texture":"Blocs/Pierre/",
+         "description":"bloc chato"
+      },
+      {
+         "x":1220,
+         "y":139,
+         "width":30,
+         "height":30,
+         "elasticity":0.5,
+         "velocity":{
+            "x":0,
+            "y":0
+         },
+         "mass":100,
+         "life":300,
+         "isStatic":false,
+         "texture":"Blocs/Pierre/",
+         "description":"bloc chato"
+      },
+      {
+         "x":1220,
+         "y":109,
+         "width":30,
+         "height":30,
+         "elasticity":0.5,
+         "velocity":{
+            "x":0,
+            "y":0
+         },
+         "mass":100,
+         "life":300,
+         "isStatic":false,
+         "texture":"Blocs/Pierre/",
+         "description":"bloc chato"
+      },
+      {
+         "x":1220,
+         "y":79,
+         "width":30,
+         "height":30,
+         "elasticity":0.5,
+         "velocity":{
+            "x":0,
+            "y":0
+         },
+         "mass":100,
+         "life":300,
+         "isStatic":false,
+         "texture":"Blocs/Pierre/",
+         "description":"bloc chato"
+      },
+      {
+         "x":1220,
+         "y":49,
+         "width":30,
+         "height":30,
+         "elasticity":0.5,
+         "velocity":{
+            "x":0,
+            "y":0
+         },
+         "mass":100,
+         "life":300,
+         "isStatic":false,
+         "texture":"Blocs/Pierre/",
+         "description":"bloc chato"
+      },
+      {
+         "x":140,
+         "y":250,
+         "width":30,
+         "height":30,
+         "elasticity":0.5,
+         "velocity":{
+            "x":0,
+            "y":0
+         },
+         "mass":30,
+         "life":450,
+         "isStatic":false,
+         "texture":"Blocs/Pierre/",
+         "textureState":3,
+         "description":"Box protège cible"
+      },
+      {
+         "x":140,
+         "y":220,
+         "width":30,
+         "height":30,
+         "elasticity":0.5,
+         "velocity":{
+            "x":0,
+            "y":0
+         },
+         "mass":30,
+         "life":450,
+         "isStatic":false,
+         "texture":"Blocs/Pierre/",
+         "textureState":3,
+         "description":"Box protège cible"
+      },
+      {
+         "x":140,
+         "y":190,
+         "width":30,
+         "height":30,
+         "elasticity":0.5,
+         "velocity":{
+            "x":0,
+            "y":0
+         },
+         "mass":30,
+         "life":450,
+         "isStatic":false,
+         "texture":"Blocs/Pierre/",
+         "textureState":3,
+         "description":"Box protège cible"
+      },
+      {
+         "x":140,
+         "y":160,
+         "width":30,
+         "height":30,
+         "elasticity":0.5,
+         "velocity":{
+            "x":0,
+            "y":0
+         },
+         "mass":30,
+         "life":450,
+         "isStatic":false,
+         "texture":"Blocs/Pierre/",
+         "textureState":3,
+         "description":"Box protège cible"
+      },
+      {
+         "x":140,
+         "y":130,
+         "width":30,
+         "height":30,
+         "elasticity":0.5,
+         "velocity":{
+            "x":0,
+            "y":0
+         },
+         "mass":30,
+         "life":450,
+         "isStatic":false,
+         "texture":"Blocs/Pierre/",
+         "textureState":3,
+         "description":"Box protège cible"
+      }
+   ]
 }

@@ -1,3 +1,4 @@
+/**** Classe du menu, s'occupe de l'affichage du menu aussi (contrairement à game qui a son renderer) ****/
 class Menu {
     constructor(game){
 		this.game = game;
@@ -9,13 +10,13 @@ class Menu {
         this.centre = new Vector(this.canvas.width/2, this.canvas.height/2);
         this.getInfoLevels();
 	}
-    //boutons pour relancer et aller au suivant
+    //boutons pour relancer et aller au niveau suivant (restart et next)
     initButtons(){
-        this.buttons = new Array();
+        this.buttons = new Array(); //tableau contenant les boutons de menu (restart et next)
         this.buttonRestart = new MenuButton("Restart level", "ressources/Boutons/restart.png", this.canvas, this.context,
                                             this.centre.x-this.sizeButton-20, this.centre.y+this.sizeButton+20,
                                             this.sizeButton, this.sizeButton, true, this.game);
-        var clickable = this.game.currentLevel.levelNum+1 <= this.game.nbWins;
+        var clickable = this.game.currentLevel.levelNum+1 <= this.game.nbWins && this.game.currentLevel.levelNum+1 < this.levels.length;
 
         this.buttonNext = new MenuButton("Next level", "ressources/Boutons/next_level.png", this.canvas, this.context,
                                             this.centre.x+20, this.centre.y+this.sizeButton+20,
@@ -100,12 +101,11 @@ class Menu {
         xmlhttp.open("GET", "./level/world.json", true);
         xmlhttp.send();
     }
-    //lire les infos du json
+    //lire les infos du json récupéré et terminer l'initialisation du menu en conséquence
     readData(world){
         this.levels = world.levels;
         this.initButtons();
         this.initButtonsLevels();
-        this.textInfo = "Game Paused";
     }
     //ouvre le menu
     open(){
@@ -135,6 +135,7 @@ class Menu {
             }
         }
     }
+    //dessiner le menu
 	draw(){
         //noirci le fond
 		this.context.fillStyle ='rgba(0,0,0,0.5)'
@@ -145,13 +146,13 @@ class Menu {
         this.drawButtonsLevels();
         this.drawInfo();
 	}
-    //affiche les boutons de niveaux
+    //dessine les boutons de niveaux
     drawButtonsLevels(){
         for (var i = 0; i < this.buttonsLevels.length; i++) {
             this.buttonsLevels[i].draw();
         }
     }
-    //affiche si la partie est en cours, gagnée ou perdue
+    //dessine si la partie est en cours, gagnée ou perdue (texte informatif)
     drawInfo(){
         this.context.font = "bold 60px Grobold";
         this.context.strokeStyle = "#e7dfc2";
@@ -160,6 +161,7 @@ class Menu {
         this.context.strokeText(this.textInfo, this.centre.x, 100);
         this.context.fillText(this.textInfo, this.centre.x, 100);
     }
+    //efface le canvas (menu)
 	clearCanvas() {
 		this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 	}

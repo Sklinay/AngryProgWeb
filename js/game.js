@@ -109,7 +109,7 @@ class Game {
                 if (this.menu.shown) {
                     this.menu.close();
                 } else {
-                    this.menu.textInfo = "Game Paused";
+                    this.menu.textInfo = "Jeu en pause";
                     this.menu.open();
                 }
             }

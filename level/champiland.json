@@ -63,21 +63,38 @@
         "description": "ennemy1"
         },
         {
-            "x": 1300,
-            "y": 500,
-            "width": 80,
-            "height": 80,
-            "life": 1,
-            "elasticity": 0.5,
-            "velocity": {
-                "x": 0,
-                "y": 0
-            },
-            "mass": 10,
-            "isStatic": false,
-            "texture": "Ennemies/Square/",
-            "textureState": 3,
-            "description": "ennemy2"
+        "x": 1300,
+        "y": 500,
+        "width": 80,
+        "height": 80,
+        "life": 1,
+        "elasticity": 0.5,
+        "velocity": {
+            "x": 0,
+            "y": 0
+        },
+        "mass": 10,
+        "isStatic": false,
+        "texture": "Ennemies/Square/",
+        "textureState": 3,
+        "description": "ennemy2"
+        },
+        {
+        "x": 1300,
+        "y": 40,
+        "width": 80,
+        "height": 80,
+        "life": 1,
+        "elasticity": 0.5,
+        "velocity": {
+            "x": 0,
+            "y": 0
+        },
+        "mass": 10,
+        "isStatic": false,
+        "texture": "Ennemies/Square/",
+        "textureState": 3,
+        "description": "ennemy3"
         }],
     "decor": [{
         "x": 450,
@@ -237,7 +254,7 @@
             "description": "protege glace droite"
         },{
             "x": 1220,
-            "y": 239,
+            "y": 240,
             "width": 260,
             "height": 40,
             "elasticity": 0.5,

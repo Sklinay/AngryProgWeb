@@ -38,18 +38,18 @@ class Game {
         this.interval;
         this.loadLevel();
     }
-    
+
     loadLevel() {
         this.currentLevel.load();
     }
-    
+
     reload() {
         this.engine.bodies = [];
         this.ammo.birds = [];
         this.decor.decors = [];
         this.loadLevel();
     }
-    
+
     loadGame() {
 
         var _this = this;
@@ -109,6 +109,7 @@ class Game {
                 if (this.menu.shown) {
                     this.menu.close();
                 } else {
+                    this.menu.textInfo = "Game Paused";
                     this.menu.open();
                 }
             }

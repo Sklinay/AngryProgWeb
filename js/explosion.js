@@ -5,7 +5,7 @@ class Explosion {
         this.power = body.mass * 20;
         var color = ["#ff0000","#ffea0a"];
         for (let i = 0; i < this.power; i++) {
-            this.particles.push(new Particle(this.context, body,color[i%3]));
+            this.particles.push(new Particle(this.context, body,color[i%2]));
         }
 
     }

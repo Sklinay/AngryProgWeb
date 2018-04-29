@@ -40,10 +40,13 @@ class Engine {
         for (var i = 0; i < this.explosions.length; i++) {
             this.explosions[i].update();
         }
-        
+        var noTarget = true;
+        var allAmmoStatic = true;
         //Pour chaque body
         for (var i = 0; i < this.bodies.length; i++) {
             var body = this.bodies[i];
+            if(body.type == "target")
+                noTarget=false;
             var bounce = Vector.ZERO;
             //Pour chaque body autre que ceux déjà parcouru dans la première boucle
             for (var j = i + 1; j < this.bodies.length; j++) {
@@ -75,8 +78,24 @@ class Engine {
                 body.velocity = body.velocity.add(deltaV);
 
                 body.move(body.velocity.mult(dt));
+                if(body.type == "ammo" && body.velocity.norm() > 0.05)
+                    allAmmoStatic=false;
             }
 
+        }
+        
+        if(noTarget && this.explosions.length == 0 && !this.game.gameOver){
+            if(this.game.currentLevel.levelNum >= this.game.nbWins)              
+                this.game.nbWins++;                
+            this.game.menu.textInfo = "Bravo !";
+            this.game.gameOver = true;
+            this.game.menu.open();
+        }
+        
+        if(this.game.ammo.getRemainingAmmo() == 0 && allAmmoStatic && !this.game.gameOver){
+            this.game.menu.textInfo = "Vous avez perdu !";
+            this.game.gameOver = true;
+            this.game.menu.open();
         }
 
     }

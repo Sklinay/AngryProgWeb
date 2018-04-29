@@ -66,7 +66,7 @@ class Line {
         
         var bulletData = this.game.ammo.selectedAmmo.generateBullet(this.launcherPos.sub(this.target),this.getFireVec());
 
-        var sprite = new Sprite(this.context, bulletData);
+        var sprite = new Sprite(this.context, bulletData,"ammo");
 
         this.game.engine.addBody(sprite);
         this.game.ammo.decAmount();

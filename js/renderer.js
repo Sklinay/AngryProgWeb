@@ -4,6 +4,7 @@ class Renderer {
         this.canvas = canvas;
         this.context = this.canvas.getContext("2d");
         this.engine = e;
+        this.interval = null;
     }
 
     update(dt) {
@@ -21,5 +22,22 @@ class Renderer {
         //ctx => window.ctx 
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
-
+    
+    start() {
+        if(this.interval != null) return;
+        let _this = this;
+        this.interval = setInterval(function () {
+            try {
+                _this.update(1000 / 60);
+            } catch (e) {
+                clearInterval(_this);
+                throw (e);
+            }
+        }, 1000 / 60);
+    }
+    
+    stop(){
+        clearInterval(this.interval);
+        this.interval = null;
+    }
 }

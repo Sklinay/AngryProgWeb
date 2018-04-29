@@ -3,7 +3,7 @@ class Sprite extends Body {
     constructor(context, s, type) {
         super(s);
         this.context = context;
-        this.type = type;
+        this.type = (type === undefined?"unknown":type);
         this.texture = s.texture;
         this.textureState = (s.textureState === undefined ? 1 : s.textureState);
         this.updateImage(s.texture);

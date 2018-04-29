@@ -109,13 +109,14 @@ class Menu {
     }
     //ouvre le menu
     open(){
-        this.game.pause = true;
+        this.game.renderer.stop();
+        this.initButtonsLevels();
         this.draw();
         this.shown = true;
     }
     //ferme le menu
     close(){
-        this.game.pause = false;
+        this.game.renderer.start();
         this.clearCanvas();
         this.shown = false;
     }
@@ -128,6 +129,7 @@ class Menu {
         }
         for (var i = 0; i < this.buttonsLevels.length; i++) {
             if (this.buttonsLevels[i].hasThis(x, y) && this.buttonsLevels[i].clickable) {
+                this.gameOver = true;
                 this.buttonsLevels[i].click();
             }
         }

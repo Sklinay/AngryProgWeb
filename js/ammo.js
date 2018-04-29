@@ -11,16 +11,23 @@ class Ammo {
         if (this.birds[name] != null) {
             this.selectedAmmo = this.birds[name];
             this.game.engine.aimLine.updateLauncher();
-        }
-        else if (name == "noAmmo"){
+        } else if (name == "noAmmo") {
             this.selectedAmmo = null;
             this.game.engine.aimLine.updateLauncher();
         }
     }
-
-    decAmount(){
+    
+    getRemainingAmmo() {
+        var total = 0;
+        for (var key in this.birds) {
+            total += this.birds[key].amount;
+        }
+        return total;
+    }
+    
+    decAmount() {
         this.selectedAmmo.decAmount();
-        if(this.selectedAmmo.amount == 0){
+        if (this.selectedAmmo.amount == 0) {
             for (var key in this.birds) {
                 if (this.birds[key].amount > 0) {
                     this.selectAmmo(key)

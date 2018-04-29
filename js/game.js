@@ -13,8 +13,9 @@ class Game {
     constructor(canvas, canvasDecor, canvasAmmo, canvasMenu) {
         this.firstStart = true;
         this.pause = false;
+        this.gameOver = false;
         this.currentLevel = new Loader(this, "plaine.json", 0);
-        this.nbWins = 3;
+        this.nbWins = 0;
         this.canvasJeu = canvas;
         this.contextJeu = this.canvasJeu.getContext("2d");
 
@@ -33,6 +34,7 @@ class Game {
 
         this.engine = new Engine(this);
         this.renderer = new Renderer(this.canvasJeu, this.engine)
+        this.interval;
         this.loadLevel();
     }
     loadLevel() {
@@ -51,22 +53,15 @@ class Game {
         this.ammo.update();
         this.engine.aimLine.updateLauncher();
 
-        this.decor.update();
+        this.decor.update();        
+        this.renderer.start();
+        
         if (this.firstStart) {
             this.firstStart = false;
-            var interval;
-            interval = setInterval(function () {
-                try {
-                    if (!_this.pause) {
-                        _this.renderer.update(1000 / 144);
-                    }
-                } catch (e) {
-                    clearInterval(interval);
-                    throw (e);
-                }
-            }, 1000 / 144);
             this.initListener();
         }
+        this.gameOver = false;
+
     }
     computeCursorPos(x, y) {
         var rect = this.canvas.getBoundingClientRect();
@@ -105,7 +100,7 @@ class Game {
         });
         //quand on clique sur echap, on affiche ou désaffiche le menu
         window.addEventListener('keyup', (event) => {
-            if (event.key == "Escape") {
+            if (event.key == "Escape" && !this.gameOver) {
                 if (this.menu.shown) {
                     this.menu.close();
                 } else {

@@ -15,8 +15,8 @@ class Game {
         this.pause = false;
         this.gameOver = false;
         this.currentLevel = new Loader(this, "plaine.json", 0);
-        this.nbWins = 0;
         this.score = 0;
+        this.nbWins = 3;
         this.canvasJeu = canvas;
         this.contextJeu = this.canvasJeu.getContext("2d");
 
@@ -57,9 +57,9 @@ class Game {
         this.ammo.update();
         this.engine.aimLine.updateLauncher();
 
-        this.decor.update();        
+        this.decor.update();
         this.renderer.start();
-        
+
         if (this.firstStart) {
             this.firstStart = false;
             this.initListener();

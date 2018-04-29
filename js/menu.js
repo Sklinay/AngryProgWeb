@@ -111,6 +111,7 @@ class Menu {
     open(){
         this.game.renderer.stop();
         this.initButtonsLevels();
+        this.initButtons();
         this.draw();
         this.shown = true;
     }
